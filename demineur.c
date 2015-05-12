@@ -8,14 +8,6 @@ int NB_Y = Y_MAX;
 int NB_MINE = (X_MAX*Y_MAX-9);
 int MODE = 3;
 
-IMAGE inactif = charge_image("inactif.bmp");
-IMAGE mine = charge_image("mine.bmp");
-IMAGE chiff[9] = {
-	charge_image("0.bmp"),charge_image("1.bmp"),charge_image("2.bmp"),
-	charge_image("3.bmp"),charge_image("4.bmp"),charge_image("5.bmp"),
-	charge_image("6.bmp"),charge_image("7.bmp"),charge_image("8.bmp")
-};
-
 struct cellule
 {
 	int mine;
@@ -113,6 +105,7 @@ GRILLE generation_grille(GRILLE grille, POINT p)
 
 void affiche_cell_inactif(GRILLE grille)
 {
+	IMAGE inactif = charge_image("inactif.bmp");
 	POINT p;
 	int i,j;
 	for(j=0;j<NB_Y;j++)
@@ -126,12 +119,18 @@ void affiche_cell_inactif(GRILLE grille)
 
 void affiche_cell_active(GRILLE grille)
 {
+	IMAGE mine = charge_image("mine.bmp");
+	IMAGE chiff[9] = {
+		charge_image("0.bmp"),charge_image("1.bmp"),charge_image("2.bmp"),
+		charge_image("3.bmp"),charge_image("4.bmp"),charge_image("5.bmp"),
+		charge_image("6.bmp"),charge_image("7.bmp"),charge_image("8.bmp")
+	};
 	POINT p;
 	int i,j;
 	for(j=0;j<NB_Y;j++)
 		for(i=0;i<NB_X;i++) {
 			p.x = i*SCALE; p.y = ((NB_Y-1)-j)*SCALE;
-			if(grille.cell[i][(NB_Y-1)-j].affiche == 0) {}
+			if(grille.cell[i][(NB_Y-1)-j].affichage == 0) {}
 			else if(grille.cell[i][(NB_Y-1)-j].mine == 1)
 				dessine_image(mine, p);
 			else
@@ -143,21 +142,20 @@ void affiche_cell_active(GRILLE grille)
 GRILLE modif_grille(GRILLE grille, int i, int j)
 {
 	if(grille.cell[i][j].chiffre > 0) {
-		grille.cell[i][j].affichage = 1
-		return grille;
+		grille.cell[i][j].affichage = 1;
 	}   
 	else if(grille.cell[i][j].chiffre == 0 && grille.cell[i][j].mine == 0) {
-		grille.cell[i][j].affichage = 1
+		grille.cell[i][j].affichage = 1;
 		grille = modif_grille(grille,i,j-1);
 		grille = modif_grille(grille,i,j+1);
 		grille = modif_grille(grille,i-1,j);
 		grille = modif_grille(grille,i+1,j);
-		return grille;
 	}
 	else if(grille.cell[i][j].mine == 1)
 	{
 		printf("\nBOOOOOOM\n");
 	}
+	return grille;
 }
 
 /* GRILLE modif_grille(GRILLE grille)
@@ -204,7 +202,7 @@ int main(int argc,  char** argv)
 	p = convert_coord1(p);
 	printf("\nPremier clic en : %d,%d\n",p.x,p.y);
 	grille = generation_grille(grille,p);
-	grille = modif_grille(grille,p.x,p.y)
+	grille = modif_grille(grille,p.x,p.y);
 	// affiche_console(grille);
 	affiche_cell_active(grille);
 	attendre_echap();
