@@ -141,19 +141,14 @@ void affiche_cell_active(GRILLE grille)
 
 GRILLE modif_grille(GRILLE grille, int i, int j)
 {
-	if(grille.cell[i][j].chiffre > 0) {
-		grille.cell[i][j].affichage = 1;
-	}   
+	grille.cell[i][j].affichage = 1;
+	if(grille.cell[i][j].chiffre > 0) {}
 	else if(grille.cell[i][j].chiffre == 0 && grille.cell[i][j].mine == 0) {
-		grille.cell[i][j].affichage = 1;
-		grille = modif_grille(grille,i,j-1);
-		grille = modif_grille(grille,i,j+1);
-		grille = modif_grille(grille,i-1,j);
-		grille = modif_grille(grille,i+1,j);
-	}
-	else if(grille.cell[i][j].mine == 1)
-	{
-		printf("\nBOOOOOOM\n");
+		int i1, j1;
+		for(i1 = i - 1; i1 < i + 2; i1++)
+			for(j1 = j - 1; j1 < j + 2; j1++)
+				if(i1 >= 0 && i1 < NB_X && j1 >= 0 && j1 < NB_Y)
+					grille = modif_grille(grille,i1,j1)
 	}
 	return grille;
 }
