@@ -148,7 +148,7 @@ GRILLE modif_grille(GRILLE grille, int i, int j)
 		for(i1 = i - 1; i1 < i + 2; i1++)
 			for(j1 = j - 1; j1 < j + 2; j1++)
 				if(i1 >= 0 && i1 < NB_X && j1 >= 0 && j1 < NB_Y)
-					grille = modif_grille(grille,i1,j1)
+					grille = modif_grille(grille,i1,j1);
 	}
 	return grille;
 }
