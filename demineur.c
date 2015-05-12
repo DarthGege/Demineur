@@ -170,6 +170,7 @@ void affiche_cell_active(GRILLE grille)
 	affiche_tout();
 }
 
+/* fonction générant trop d'iterations
 GRILLE modif_grille(GRILLE grille, int i, int j)
 {
 	if(grille.cell[i][j].affichage == 0) {
@@ -182,6 +183,32 @@ GRILLE modif_grille(GRILLE grille, int i, int j)
 						grille = modif_grille(grille,i1,j1);
 		}
 	}
+	return grille;
+}
+/**/
+
+GRILLE modif_grille(GRILLE grille, int i, int j)
+{
+	grille.cell[i][j].affichage = 2;
+	int modif = 0;
+	do {
+		modif = 0;
+		for(j=0;j<NB_Y;j++)
+			for(i=0;i<NB_X;i++)
+				if(grille.cell[i][j].affichage == 2) {
+					grille.cell[i][j].affichage = 1;
+					modif = 1;
+					if(grille.cell[i][j].mine == 1)
+						printf("BOOOOMMMM");
+					else if(grille.cell[i][j].chiffre == 0) {
+						int i1, j1;
+						for(i1 = i - 1; i1 < i + 2; i1++)
+							for(j1 = j - 1; j1 < j + 2; j1++)
+								if(i1 >= 0 && i1 < NB_X && j1 >= 0 && j1 < NB_Y && grille.cell[i1][j1].affichage == 0)
+									grille.cell[i1][j1].affichage = 2;
+					}
+				}
+	} while(modif==1);
 	return grille;
 }
 
