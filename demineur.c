@@ -33,6 +33,45 @@ int input_entier() // Récupéré de toolbox.c pour y apporter des modifications
 	return n;
 }
 
+void init_input()
+{
+	images[0] = charge_image("res/0.bmp");
+	images[1] = charge_image("res/1.bmp");
+	images[2] = charge_image("res/2.bmp");
+	images[3] = charge_image("res/3.bmp");
+	images[4] = charge_image("res/4.bmp");
+	images[5] = charge_image("res/5.bmp");
+	images[6] = charge_image("res/6.bmp");
+	images[7] = charge_image("res/7.bmp");
+	images[8] = charge_image("res/8.bmp");
+	images[9] = charge_image("res/mine.bmp");
+	images[10] = charge_image("res/redmine.bmp");
+	images[11] = charge_image("res/error.bmp");
+	images[12] = charge_image("res/flag.bmp");
+	images[13] = charge_image("res/hint.bmp");
+	images[14] = charge_image("res/unknow.bmp");
+	images[15] = charge_image("res/safe.bmp");
+	images[16] = charge_image("res/danger.bmp");
+	
+	do {
+		printf("Grille de : (9-%d) X = ? ",X_MAX);
+		NB_X = input_entier();
+	} while(NB_X > X_MAX || NB_X < 9);
+	do {
+		printf("Grille de : (9-%d) Y = ? ",Y_MAX);
+		NB_Y = input_entier();
+	} while(NB_Y > Y_MAX || NB_Y < 9);
+	int MINE_MAX = (NB_X-1)*(NB_Y-1);
+	do {
+		printf("Nombre de mine : (10-%d) ? ",MINE_MAX);
+		NB_MINE = input_entier();
+	} while(NB_MINE > MINE_MAX || NB_MINE < 10);
+	do {
+		printf("Mode de jeux : (1:mine possible 2:safe 3:ouverture) ? ");
+		MODE = input_entier();
+	} while(MODE > 3 || MODE < 1);
+}
+
 POINT convert_coord1(POINT p)
 {
 	p.x = p.x/SCALE; p.y = p.y/SCALE;
@@ -146,55 +185,11 @@ GRILLE modif_grille(GRILLE grille, int i, int j)
 	return grille;
 }
 
-/* GRILLE modif_grille(GRILLE grille)
-{
-	int i,j;
-	for(i=1; i<C-1; i++)
-		for(j=1; j<L-1; j++)
-			grille.cell[i][j] = modif_cell(t1,i,j);
-	return grille;
-} */
-
 /* Programme : */
 int main(int argc,  char** argv)
 {
-	images[0] = charge_image("res/0.bmp");
-	images[1] = charge_image("res/1.bmp");
-	images[2] = charge_image("res/2.bmp");
-	images[3] = charge_image("res/3.bmp");
-	images[4] = charge_image("res/4.bmp");
-	images[5] = charge_image("res/5.bmp");
-	images[6] = charge_image("res/6.bmp");
-	images[7] = charge_image("res/7.bmp");
-	images[8] = charge_image("res/8.bmp");
-	images[9] = charge_image("res/mine.bmp");
-	images[10] = charge_image("res/redmine.bmp");
-	images[11] = charge_image("res/error.bmp");
-	images[12] = charge_image("res/flag.bmp");
-	images[13] = charge_image("res/hint.bmp");
-	images[14] = charge_image("res/unknow.bmp");
-	images[15] = charge_image("res/safe.bmp");
-	images[16] = charge_image("res/danger.bmp");
-
-	/* Initialisation */
-	do {
-		printf("Grille de : (9-%d) X = ? ",X_MAX);
-		NB_X = input_entier();
-	} while(NB_X > X_MAX || NB_X < 9);
-
-	do {
-		printf("Grille de : (9-%d) Y = ? ",Y_MAX);
-		NB_Y = input_entier();
-	} while(NB_Y > Y_MAX || NB_Y < 9);
-	int MINE_MAX = (NB_X-1)*(NB_Y-1);
-	do {
-		printf("Nombre de mine : (10-%d) ? ",MINE_MAX);
-		NB_MINE = input_entier();
-	} while(NB_MINE > MINE_MAX || NB_MINE < 10);
-	do {
-		printf("Mode de jeux : (1:mine possible 2:safe 3:ouverture) ? ");
-		MODE = input_entier();
-	} while(MODE > 3 || MODE < 1);
+		/* Initialisation */
+	init_input();
 	// verification entrées utilisateur 
 	printf("\nLa grille ferra : %d * %d avec %d mines avec le mode n_%d\n\n",NB_X,NB_Y,NB_MINE,MODE);
 	GRILLE grille = init_grille(); // grille grille... grille grille grille ? grille grille le grillon. grille ?
