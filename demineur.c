@@ -1,5 +1,5 @@
 #include "toolbox.h"
-#define SCALE 35
+#define SCALE 33
 #define X_MAX 30
 #define Y_MAX 30
 
@@ -13,7 +13,7 @@ struct cellule
 {
 	int mine;
 	int chiffre;
-	int affichage;  
+	int affichage;
 };
 typedef struct cellule CELLULE;
 
@@ -179,22 +179,22 @@ int main(int argc,  char** argv)
 	/* Initialisation */
 	do {
 		printf("Grille de : (9-%d) X = ? ",X_MAX);
-		NB_X = input_entier();
+		NB_X = 20;//input_entier();
 	} while(NB_X > X_MAX || NB_X < 9);
 
 	do {
 		printf("Grille de : (9-%d) Y = ? ",Y_MAX);
-		NB_Y = input_entier();
+		NB_Y = 20;//input_entier();
 	} while(NB_Y > Y_MAX || NB_Y < 9);
 	int MINE_MAX = (NB_X-1)*(NB_Y-1);
 	do {
 		printf("Nombre de mine : (10-%d) ? ",MINE_MAX);
-		NB_MINE = input_entier();
+		NB_MINE = 20;//input_entier();
 	} while(NB_MINE > MINE_MAX || NB_MINE < 10);
 	do {
-		printf("Mode de jeux : ? ");
-		MODE = input_entier();
-	} while(MODE > 3 || MODE < 0);
+		printf("Mode de jeux : (1:mine possible 2:safe 3:ouverture) ? ");
+		MODE = 3;//input_entier();
+	} while(MODE > 3 || MODE < 1);
 	// verification entrées utilisateur 
 	printf("\nLa grille ferra : %d * %d avec %d mines avec le mode n_%d\n\n",NB_X,NB_Y,NB_MINE,MODE);
 	GRILLE grille = init_grille(); // grille grille... grille grille grille ? grille grille le grillon. grille ?
@@ -208,9 +208,14 @@ int main(int argc,  char** argv)
 	p = convert_coord1(p);
 	printf("\nPremier clic en : %d,%d\n",p.x,p.y);
 	grille = generation_grille(grille,p);
-	grille = modif_grille(grille,p.x,p.y);
-	// affiche_console(grille);
-	affiche_cell_active(grille);
+	while(1) {
+		grille = modif_grille(grille,p.x,p.y);
+		// affiche_console(grille);
+		affiche_cell_active(grille);
+		p = attendre_clic();
+		p = convert_coord1(p);
+		printf("\nPremier clic en : %d,%d\n",p.x,p.y);
+    }
 	attendre_echap();
 	quitter(0);
 }
