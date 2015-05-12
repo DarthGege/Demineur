@@ -1,5 +1,5 @@
 #include "toolbox.h"
-#define SCALE 30
+#define SCALE 35
 #define X_MAX 30
 #define Y_MAX 30
 
@@ -7,6 +7,7 @@ int NB_X = X_MAX;
 int NB_Y = Y_MAX;
 int NB_MINE = (X_MAX*Y_MAX-9);
 int MODE = 3;
+IMAGE images[17];
 
 struct cellule
 {
@@ -105,26 +106,19 @@ GRILLE generation_grille(GRILLE grille, POINT p)
 
 void affiche_cell_inactif(GRILLE grille)
 {
-	IMAGE inactif = charge_image("inactif.bmp");
 	POINT p;
 	int i,j;
 	for(j=0;j<NB_Y;j++)
 		for(i=0;i<NB_X;i++)
 			if(grille.cell[i][(NB_Y-1)-j].affichage == 0) {
 				p.x = i*SCALE; p.y = ((NB_Y-1)-j)*SCALE;
-				dessine_image(inactif, p);
+				dessine_image(images[14], p);
 			}
 	affiche_tout();
 }
 
 void affiche_cell_active(GRILLE grille)
 {
-	IMAGE mine = charge_image("mine.bmp");
-	IMAGE chiff[9] = {
-		charge_image("0.bmp"),charge_image("1.bmp"),charge_image("2.bmp"),
-		charge_image("3.bmp"),charge_image("4.bmp"),charge_image("5.bmp"),
-		charge_image("6.bmp"),charge_image("7.bmp"),charge_image("8.bmp")
-	};
 	POINT p;
 	int i,j;
 	for(j=0;j<NB_Y;j++)
@@ -132,9 +126,9 @@ void affiche_cell_active(GRILLE grille)
 			p.x = i*SCALE; p.y = ((NB_Y-1)-j)*SCALE;
 			if(grille.cell[i][(NB_Y-1)-j].affichage == 0) {}
 			else if(grille.cell[i][(NB_Y-1)-j].mine == 1)
-				dessine_image(mine, p);
+				dessine_image(images[9], p);
 			else
-				dessine_image(chiff[grille.cell[i][(NB_Y-1)-j].chiffre], p);
+				dessine_image(images[grille.cell[i][(NB_Y-1)-j].chiffre], p);
 		}
 	affiche_tout();
 }
@@ -165,6 +159,24 @@ GRILLE modif_grille(GRILLE grille, int i, int j)
 /* Programme : */
 int main(int argc,  char** argv)
 {
+	images[0] = charge_image("res/0.bmp");
+	images[1] = charge_image("res/1.bmp");
+	images[2] = charge_image("res/2.bmp");
+	images[3] = charge_image("res/3.bmp");
+	images[4] = charge_image("res/4.bmp");
+	images[5] = charge_image("res/5.bmp");
+	images[6] = charge_image("res/6.bmp");
+	images[7] = charge_image("res/7.bmp");
+	images[8] = charge_image("res/8.bmp");
+	images[9] = charge_image("res/mine.bmp");
+	images[10] = charge_image("res/redmine.bmp");
+	images[11] = charge_image("res/error.bmp");
+	images[12] = charge_image("res/flag.bmp");
+	images[13] = charge_image("res/hint.bmp");
+	images[14] = charge_image("res/unknow.bmp");
+	images[15] = charge_image("res/safe.bmp");
+	images[16] = charge_image("res/danger.bmp");
+
 	/* Initialisation */
 	do {
 		printf("Grille de : (9-%d) X = ? ",X_MAX);
