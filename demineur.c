@@ -131,7 +131,8 @@ void affiche_cell_active(GRILLE grille)
 	for(j=0;j<NB_Y;j++)
 		for(i=0;i<NB_X;i++) {
 			p.x = i*SCALE; p.y = ((NB_Y-1)-j)*SCALE;
-			if(grille.cell[i][(NB_Y-1)-j].mine==1)
+			if(grille.cell[i][(NB_Y-1)-j].affiche == 0) {}
+			else if(grille.cell[i][(NB_Y-1)-j].mine == 1)
 				dessine_image(mine, p);
 			else
 				dessine_image(chiff[grille.cell[i][(NB_Y-1)-j].chiffre], p);
@@ -145,7 +146,7 @@ GRILLE modif_grille(GRILLE grille, int i, int j)
 		grille.cell[i][j].affichage = 1
 		return grille;
 	}   
-	else if(grille.cell[i][j].chiffre == 0) {
+	else if(grille.cell[i][j].chiffre == 0 && grille.cell[i][j].mine == 0) {
 		grille.cell[i][j].affichage = 1
 		grille = modif_grille(grille,i,j-1);
 		grille = modif_grille(grille,i,j+1);
@@ -155,7 +156,7 @@ GRILLE modif_grille(GRILLE grille, int i, int j)
 	}
 	else if(grille.cell[i][j].mine == 1)
 	{
-			
+		printf("\nBOOOOOOM\n");
 	}
 }
 
