@@ -13,9 +13,7 @@ struct cellule
 {
 	int mine;
 	int chiffre;
-	int affichage;
-	//negatif : 
-  
+	int affichage;  
 };
 typedef struct cellule CELLULE;
 
@@ -135,14 +133,15 @@ void affiche_cell_active(GRILLE grille)
 
 GRILLE modif_grille(GRILLE grille, int i, int j)
 {
-	grille.cell[i][j].affichage = 1;
-	if(grille.cell[i][j].chiffre > 0) {}
-	else if(grille.cell[i][j].chiffre == 0 && grille.cell[i][j].mine == 0) {
-		int i1, j1;
-		for(i1 = i - 1; i1 < i + 2; i1++)
-			for(j1 = j - 1; j1 < j + 2; j1++)
-				if(i1 >= 0 && i1 < NB_X && j1 >= 0 && j1 < NB_Y)
-					grille = modif_grille(grille,i1,j1);
+	if(grille.cell[i][j].affichage == 0) {
+		grille.cell[i][j].affichage = 1;
+		if(grille.cell[i][j].chiffre == 0 && grille.cell[i][j].mine == 0) {
+			int i1, j1;
+			for(i1 = i - 1; i1 < i + 2; i1++)
+				for(j1 = j - 1; j1 < j + 2; j1++)
+					if(i1 >= 0 && i1 < NB_X && j1 >= 0 && j1 < NB_Y)
+						grille = modif_grille(grille,i1,j1);
+		}
 	}
 	return grille;
 }
