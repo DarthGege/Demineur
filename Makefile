@@ -25,7 +25,7 @@ SOURCES=$(EXECUTABLE).c
 
 ## Options dépendant du système d'exploitation
 ifeq ($(OS),Windows_NT)
-  EXEEXT := .dll
+  EXEEXT := .exe
   DLLEXT := .dll
 else
   EXEEXT := 
