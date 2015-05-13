@@ -32,7 +32,7 @@ struct grille
 };
 typedef struct grille GRILLE;
 
-/* Fonctions : */
+		/* Fonctions : */
 
 int input_entier() // Récupéré de toolbox.c pour y apporter des modifications d'affichage
 {
@@ -85,12 +85,12 @@ void init_input()
 SOURIS attendre_multiclic()
 {
 	INPUT in;
-    SOURIS P;
+	SOURIS P;
 	
 	// On force l'attente du prochain clic!
 	in.mouse_clic[0].x = in.mouse_clic[0].y = -1;
-    in.mouse_clic[1].x = in.mouse_clic[1].y = -1;
-    in.mouse_clic[2].x = in.mouse_clic[2].y = -1;
+	in.mouse_clic[1].x = in.mouse_clic[1].y = -1;
+	in.mouse_clic[2].x = in.mouse_clic[2].y = -1;
 
 	while( in.mouse_clic[0].x==-1 && in.mouse_clic[1].x==-1 && in.mouse_clic[2].x==-1)
 	{
@@ -98,19 +98,19 @@ SOURIS attendre_multiclic()
 		attendre(20);
 	}
 	
-    if(in.mouse_clic[0].x != -1) {
-        P.coord = in.mouse_clic[0];
-        P.bouton = 0;
-    } else if(in.mouse_clic[1].x != -1) {
-        P.coord = in.mouse_clic[1];
-        P.bouton = 1;
-    } else {
-        P.coord = in.mouse_clic[2];
-        P.bouton = 2;
-    }
+	if(in.mouse_clic[0].x != -1) {
+		P.coord = in.mouse_clic[0];
+		P.bouton = 0;
+	} else if(in.mouse_clic[1].x != -1) {
+		P.coord = in.mouse_clic[1];
+		P.bouton = 1;
+	} else {
+		P.coord = in.mouse_clic[2];
+		P.bouton = 2;
+	}
 	in.mouse_clic[0].x = in.mouse_clic[0].y = -1;
-    in.mouse_clic[1].x = in.mouse_clic[1].y = -1;
-    in.mouse_clic[2].x = in.mouse_clic[2].y = -1;
+	in.mouse_clic[1].x = in.mouse_clic[1].y = -1;
+	in.mouse_clic[2].x = in.mouse_clic[2].y = -1;
 	
 	return P;
 }
@@ -205,7 +205,12 @@ void affiche_cell_active(GRILLE grille)
 	for(j=0;j<NB_Y;j++)
 		for(i=0;i<NB_X;i++) {
 			p.x = i*SCALE; p.y = ((NB_Y-1)-j)*SCALE;
-			if(grille.cell[i][(NB_Y-1)-j].affichage == 0) {}
+			if(grille.cell[i][(NB_Y-1)-j].affichage == 0)
+				dessine_image(images[14], p);
+			else if(grille.cell[i][(NB_Y-1)-j].affichage == 4)
+				dessine_image(images[12], p);
+			else if(grille.cell[i][(NB_Y-1)-j].affichage == 5)
+				dessine_image(images[13], p);
 			else if(grille.cell[i][(NB_Y-1)-j].mine == 1)
 				dessine_image(images[9], p);
 			else
@@ -239,8 +244,8 @@ GRILLE modif_grille(GRILLE grille, int i, int j)
 		modif = 0;
 		for(j=0;j<NB_Y;j++)
 			for(i=0;i<NB_X;i++)
-                if(grille.cell[i][j].affichage == 3)
-                    grille.cell[i][j].affichage = 2;
+				if(grille.cell[i][j].affichage == 3)
+					grille.cell[i][j].affichage = 2;
 		for(j=0;j<NB_Y;j++)
 			for(i=0;i<NB_X;i++)
 				if(grille.cell[i][j].affichage == 2) {
@@ -252,18 +257,32 @@ GRILLE modif_grille(GRILLE grille, int i, int j)
 						int i1, j1;
 						for(i1 = i - 1; i1 < i + 2; i1++)
 							for(j1 = j - 1; j1 < j + 2; j1++)
-								if(i1 >= 0 && i1 < NB_X && j1 >= 0 && j1 < NB_Y && grille.cell[i1][j1].affichage == 0)
+								if(i1 >= 0 && i1 < NB_X && j1 >= 0 && j1 < NB_Y && (grille.cell[i1][j1].affichage == 0 || grille.cell[i1][j1].affichage > 3))
 									grille.cell[i1][j1].affichage = 3;
 					}
 				}
-        affiche_cell_active(grille);
-        attendre(15);
+		affiche_cell_active(grille);
+		attendre(15);
 	} while(modif==1);
-    
+	
 	return grille;
 }
 
-/* Programme : */
+GRILLE modif_flag(GRILLE grille, int i, int j)
+{
+	if(grille.cell[i][j].affichage == 0) {
+		grille.cell[i][j].affichage = 4;
+		
+	} else if(grille.cell[i][j].affichage == 4) {
+		grille.cell[i][j].affichage = 5;
+	} else if(grille.cell[i][j].affichage == 5) {
+		grille.cell[i][j].affichage = 0;
+	}
+	affiche_cell_active(grille);
+	return grille;
+}
+
+		/* Programme : */
 int main(int argc,  char** argv)
 {
 		/* Initialisation */
@@ -276,21 +295,21 @@ int main(int argc,  char** argv)
 	affiche_auto_off();
 	/* Corps du programme */
 	affiche_cell_inactif(grille);
-    int prem_clic_g = 0;
+	int prem_clic_g = 0;
 	SOURIS p;
 	while(1) {
-        p = attendre_multiclic();
-        p.coord = convert_coord1(p.coord);
-        if(prem_clic_g == 0 && p.bouton == 0) {
-            grille = generation_grille(grille,p.coord);
-            prem_clic_g++;
-        }
-        if(p.bouton == 0) {
-            grille = modif_grille(grille,p.coord.x,p.coord.y);
-        } else if(p.bouton == 2) {
-            printf("droit\n");
-        }
-    }
+		p = attendre_multiclic();
+		p.coord = convert_coord1(p.coord);
+		if(prem_clic_g == 0 && p.bouton == 0) {
+			grille = generation_grille(grille,p.coord);
+			prem_clic_g++;
+		}
+		if(p.bouton == 0) {
+			grille = modif_grille(grille,p.coord.x,p.coord.y);
+		} else if(p.bouton == 2) {
+			grille = modif_flag(grille,p.coord.x,p.coord.y);
+		}
+	}
 	attendre_echap();
 	quitter(0);
 }
