@@ -12,9 +12,9 @@
 #include "keycodes.h"
 
 // CONSTANTES
-	// Déplacement minimal lorsque l'on utilise les flèches.
+	// DÃ©placement minimal lorsque l'on utilise les flÃ¨ches.
 	#define MINDEP 1
-	// Constantes booléennes
+	// Constantes boolÃ©ennes
 	#define TRUE 1
 	#define True 1
 	#define true 1
@@ -24,55 +24,54 @@
 
 
 // ############################
-// Fenêtres et gestion du temps
+// FenÃªtres et gestion du temps
 // ############################
 	// Taille de l'affichage
 	int WIDTH;
 	int HEIGHT;
 
-	// Initialisation de la fenêtre sur laquelle on dessine
+	// Initialisation de la fenÃªtre sur laquelle on dessine
 	void initialiser_fenetre(int W, int H, char *titre);
 	void initialiser_ecran(int W, int H, char *titre);
 
 	// Affichage automatique ou manuel
-	//    Si l'affichage est automatique, chaque objet dessiné est automatiquement affiché.
+	//    Si l'affichage est automatique, chaque objet dessinÃ© est automatiquement affichÃ©.
 	//    Sinon, il faut explicitement appeler la fonction affiche_tout() pour afficher les objets
 	void affiche_auto_on();
 	void affiche_auto_off();
 	void affiche_tout();
 
-	// Renvoie le nombre de millisecondes écoulées depuis le lancement du programme
+	// Renvoie le nombre de millisecondes Ã©coulÃ©es depuis le lancement du programme
 	int chrono();
 	
-	// Attend le nombre de millisecondes passé en argument
+	// Attend le nombre de millisecondes passÃ© en argument
 	void attendre(int millisecondes);
 
 
 // ###############################
 // Couleurs et structures basiques
 // ###############################
-	// Définition du type POINT
+	// DÃ©finition du type POINT
 	typedef struct point {int x,y;} POINT;
-	typedef struct souris {POINT coord; int bouton;} SOURIS;
 
-	// Définition du type COULEUR
+	// DÃ©finition du type COULEUR
 	typedef Uint32 COULEUR;
 
-	// Création de couleur
+	// CrÃ©ation de couleur
 	// 		r, g, b et a dans l'intervalle 0 .. 255
 	COULEUR couleur_RGB(int r, int g, int b);
 	COULEUR couleur_RGBA(int r, int g, int b, int a);
 
 
 // ###############################
-// Interactivité
+// InteractivitÃ©
 // ###############################
-	// Renvoie le ou les flèches appuyées sous forme d'un déplacement en 
-	//    x négatif = nombre d'appuis sur la flèche gauche
-	//    x positif = nombre d'appuis sur la flèche droite
-	//    y négatif = nombre d'appuis sur la flèche bas
-	//    y positif = nombre d'appuis sur la flèche haut
-	// Instruction non bloquante, si aucune flèche n'a été appuyée les champs valent 0
+	// Renvoie le ou les flÃ¨ches appuyÃ©es sous forme d'un dÃ©placement en 
+	//    x nÃ©gatif = nombre d'appuis sur la flÃ¨che gauche
+	//    x positif = nombre d'appuis sur la flÃ¨che droite
+	//    y nÃ©gatif = nombre d'appuis sur la flÃ¨che bas
+	//    y positif = nombre d'appuis sur la flÃ¨che haut
+	// Instruction non bloquante, si aucune flÃ¨che n'a Ã©tÃ© appuyÃ©e les champs valent 0
 	POINT lit_fleches();
 
 	// Attend que l'on tape Echap et quitte
@@ -80,48 +79,43 @@
 	void attendre_echap();
 
 	// Renvoie vrai ou faux, selon que la touche du clavier
-	// est enfoncée ou pas.
+	// est enfoncÃ©e ou pas.
 	//	b peut prendre les valeurs KB_A, KB_B, etc...
 	//	(voir le fichier keycodes.h)
 	BOOL touche_appuyee( int b );
 
 	// Renvoie le nombre de fois (depuis le dernier appel)
-	// où la touche a été pressée/relachée
+	// oÃ¹ la touche a Ã©tÃ© pressÃ©e/relachÃ©e
 	//	b peut prendre les valeurs KB_A, KB_B, etc...
 	int touche_nb_appuis( int b );
 
-	// Renvoie déplacement de souris
-	// 	  Meme sémantique que lit_fleches()
-	// Instruction non bloquante, si la souris n'a pas bougé, les champs valent 0.
+	// Renvoie dÃ©placement de souris
+	// 	  Meme sÃ©mantique que lit_fleches()
+	// Instruction non bloquante, si la souris n'a pas bougÃ©, les champs valent 0.
 	POINT lit_souris();
 
 	// Attend que l'utilisateur clique avec le bouton gauche
-	// Renvoie les coordonnées du point cliqué
+	// Renvoie les coordonnÃ©es du point cliquÃ©
 	// Instruction bloquante
 	POINT attendre_clic();
-	
-	// Attend que l'utilisateur clique avec un bouton
-	// Renvoie les coordonnées du point cliqué et le bouton appuyé
-	// Instruction bloquante
-	SOURIS attendre_multiclic();
 
 	// Position de la souris
 	// Instruction non bloquante
 	POINT position_souris();
 
-	// Renvoie vrai ou faux, selon que le bouton de la souris est appuyé ou pas
+	// Renvoie vrai ou faux, selon que le bouton de la souris est appuyÃ© ou pas
 	//	b peut prendre les valeurs CLIC_GCH, CLIC_DRT ou CLIC_MIL
 	//	suivant le bouton qu'on souhaite regarder	
 	BOOL bouton_appuye( int b );
 
-	// Position du dernier clic sur le bouton précisé
+	// Position du dernier clic sur le bouton prÃ©cisÃ©
 	//  	b peut prendre les valeurs CLIC_GCH, CLIC_DRT ou CLIC_MIL
 	//	    suivant le bouton qu'on souhaite regarder
 	// Instruction non bloquante!
 	// S'il n'y a pas eu de clic, renvoie (-1;-1)
 	POINT position_clic( int b );
 
-	// Activer / Desactiver l'affichage de la souris à l'écran
+	// Activer / Desactiver l'affichage de la souris Ã  l'Ã©cran
 	void montre_souris();
 	void cache_souris();
 
@@ -134,7 +128,7 @@
 // ##############
 // Dessin basique
 // ##############
-	// Remplissage de tout l'écran
+	// Remplissage de tout l'Ã©cran
 	void remplir_ecran(COULEUR couleur);
 
 	// Dessine un pixel
@@ -176,19 +170,19 @@
 // Texte
 // #####
 	// Affiche du texte avec
-	// 		Le texte est passé dans l'argument "a_ecrire" 
-	// 		la police est celle définie par la constante POLICE_NAME 
-	// 		la taille est passée en argument
-	// 		l'argument p est le point en haut à gauche où le texte s'affiche
-	// 		la COULEUR C passée en argument est la couleur d'affichage
+	// 		Le texte est passÃ© dans l'argument "a_ecrire" 
+	// 		la police est celle dÃ©finie par la constante POLICE_NAME 
+	// 		la taille est passÃ©e en argument
+	// 		l'argument p est le point en haut Ã  gauche oÃ¹ le texte s'affiche
+	// 		la COULEUR C passÃ©e en argument est la couleur d'affichage
 	void dessine_texte(char *a_ecrire, int taille, POINT p, COULEUR C);
 
 	// Affiche un entier
-	// 		Meme sémantique que dessine_texte()
+	// 		Meme sÃ©mantique que dessine_texte()
 	void dessine_entier(int n, int taille, POINT p, COULEUR C);
 
-	// Affiche dans la fenêtre graphique comme dans une fenêtre
-	// shell mais sans déroulement. Commence en haut et se termine en bas.
+	// Affiche dans la fenÃªtre graphique comme dans une fenÃªtre
+	// shell mais sans dÃ©roulement. Commence en haut et se termine en bas.
 	void ecrire_texte(char *a_ecrire);
 	void ecrire_entier(int n);
 	void ecrire_booleen(BOOL b);
@@ -199,46 +193,46 @@
 // Manipulation d'images
 // #####################
     typedef struct {
-        SDL_Surface* surface;   // L'image en mémoire, modifiable
-        SDL_Texture* texture;   // L'image transformée pour le rendu
+        SDL_Surface* surface;   // L'image en mÃ©moire, modifiable
+        SDL_Texture* texture;   // L'image transformÃ©e pour le rendu
     }* IMAGE;
 
-    // Charge une image au format BMP en mémoire
+    // Charge une image au format BMP en mÃ©moire
     IMAGE charge_image( char* fichier );
     
-    // Libere la mémoire utilisée par l'image
+    // Libere la mÃ©moire utilisÃ©e par l'image
     void libere_image( IMAGE image );
 
-    // Récupérer les dimensions d'une image
+    // RÃ©cupÃ©rer les dimensions d'une image
     int largeur_image( IMAGE image );
     int hauteur_image( IMAGE image );
 
-    // Copie l'image dans la fenêtre d'affichage.
-    //		Le coin inférieur gauche de l'image sera aux coordonnees du point P.
+    // Copie l'image dans la fenÃªtre d'affichage.
+    //		Le coin infÃ©rieur gauche de l'image sera aux coordonnees du point P.
     void dessine_image( IMAGE image, POINT P );
 
-    // Copie l'image dans la fenêtre d'affichage.
-    //		Le coin inférieur gauche de l'image sera aux coordonnees du point P.
+    // Copie l'image dans la fenÃªtre d'affichage.
+    //		Le coin infÃ©rieur gauche de l'image sera aux coordonnees du point P.
     typedef enum { PAS_SYM = SDL_FLIP_NONE, SYM_H = SDL_FLIP_HORIZONTAL, SYM_V = SDL_FLIP_VERTICAL, SYM_HV = SDL_FLIP_HORIZONTAL|SDL_FLIP_VERTICAL } SYMETRIE;
     void dessine_image_rzs( IMAGE im, POINT P, double angle, double k, SYMETRIE sym );
 
-    // Récupére la couleur d'un pixel
+    // RÃ©cupÃ©re la couleur d'un pixel
     COULEUR lit_pixel_image( IMAGE image, POINT P );
 
     // Modifie la couleur d'un pixel
     void dessine_pixel_image( IMAGE image, POINT P, COULEUR c );
 
-    // Permet d'obtenir une deuxième copie d'une image en mémoire
+    // Permet d'obtenir une deuxiÃ¨me copie d'une image en mÃ©moire
     IMAGE copie_image( IMAGE im );
 
-    // Permet d'obtenir un image vide de dimension fixée
+    // Permet d'obtenir un image vide de dimension fixÃ©e
     IMAGE image_vide( int largeur, int hauteur );
 
 
 // ######
 // Divers
 // ######
-    // Helper: appelé automatiquement par quitter( error_code );
+    // Helper: appelÃ© automatiquement par quitter( error_code );
     void quitter_graph();
 
 
