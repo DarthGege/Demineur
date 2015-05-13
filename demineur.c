@@ -9,6 +9,15 @@ int NB_MINE = (X_MAX*Y_MAX-9);
 int MODE = 3;
 IMAGE images[17];
 
+/* Déplacé dans la graphics.h
+struct souris
+{
+	POINT coord;
+	int bouton;
+};
+typedef struct souris SOURIS;
+/**/
+
 struct cellule
 {
 	int mine;
@@ -71,6 +80,41 @@ void init_input()
 		MODE = input_entier();
 	} while(MODE > 3 || MODE < 1);
 }
+
+/* Déplacé dans la graphics.c
+SOURIS attendre_multiclic()
+{
+	INPUT in;
+    SOURIS P;
+	
+	// On force l'attente du prochain clic!
+	in.mouse_clic[0].x = in.mouse_clic[0].y = -1;
+    in.mouse_clic[1].x = in.mouse_clic[1].y = -1;
+    in.mouse_clic[2].x = in.mouse_clic[2].y = -1;
+
+	while( in.mouse_clic[0].x==-1 && in.mouse_clic[1].x==-1 && in.mouse_clic[2].x==-1)
+	{
+		check_events();
+		attendre(20);
+	}
+	
+    if(in.mouse_clic[0].x != -1) {
+        P.coord = in.mouse_clic[0];
+        P.bouton = 0;
+    } else if(in.mouse_clic[1].x != -1) {
+        P.coord = in.mouse_clic[1];
+        P.bouton = 1;
+    } else {
+        P.coord = in.mouse_clic[2];
+        P.bouton = 2;
+    }
+	in.mouse_clic[0].x = in.mouse_clic[0].y = -1;
+    in.mouse_clic[1].x = in.mouse_clic[1].y = -1;
+    in.mouse_clic[2].x = in.mouse_clic[2].y = -1;
+	
+	return P;
+}
+/**/
 
 POINT convert_coord1(POINT p)
 {
@@ -203,7 +247,7 @@ GRILLE modif_grille(GRILLE grille, int i, int j)
 					grille.cell[i][j].affichage = 1;
 					modif = 1;
 					if(grille.cell[i][j].mine == 1)
-						printf("BOOOOMMMM");
+						printf("BOOOOMMMM\n");
 					else if(grille.cell[i][j].chiffre == 0) {
 						int i1, j1;
 						for(i1 = i - 1; i1 < i + 2; i1++)
@@ -213,8 +257,7 @@ GRILLE modif_grille(GRILLE grille, int i, int j)
 					}
 				}
         affiche_cell_active(grille);
-        printf("reiterate");
-        attendre(100);
+        attendre(15);
 	} while(modif==1);
     
 	return grille;
@@ -233,18 +276,20 @@ int main(int argc,  char** argv)
 	affiche_auto_off();
 	/* Corps du programme */
 	affiche_cell_inactif(grille);
-	POINT p;
-	p = attendre_clic();
-	p = convert_coord1(p);
-	printf("\nPremier clic en : %d,%d\n",p.x,p.y);
-	grille = generation_grille(grille,p);
+    int prem_clic_g = 0;
+	SOURIS p;
 	while(1) {
-		grille = modif_grille(grille,p.x,p.y);
-		// affiche_console(grille);
-		affiche_cell_active(grille);
-		p = attendre_clic();
-		p = convert_coord1(p);
-		printf("\nPremier clic en : %d,%d\n",p.x,p.y);
+        p = attendre_multiclic();
+        p.coord = convert_coord1(p.coord);
+        if(prem_clic_g == 0 && p.bouton == 0) {
+            grille = generation_grille(grille,p.coord);
+            prem_clic_g++;
+        }
+        if(p.bouton == 0) {
+            grille = modif_grille(grille,p.coord.x,p.coord.y);
+        } else if(p.bouton == 2) {
+            printf("droit\n");
+        }
     }
 	attendre_echap();
 	quitter(0);
