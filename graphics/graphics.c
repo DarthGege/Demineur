@@ -367,6 +367,36 @@ POINT attendre_clic()
 	return P;
 }
 
+SOURIS attendre_multiclic()
+{
+    SOURIS P;
+	
+	// On force l'attente du prochain clic!
+	in.mouse_clic[0].x = in.mouse_clic[0].y = -1;
+    in.mouse_clic[1].x = in.mouse_clic[1].y = -1;
+    in.mouse_clic[2].x = in.mouse_clic[2].y = -1;
+	while(in.mouse_clic[0].x==-1 && in.mouse_clic[1].x==-1 && in.mouse_clic[2].x==-1)
+	{
+		check_events();
+		attendre(20);
+	}
+	
+    if(in.mouse_clic[0].x != -1) {
+        P.coord = in.mouse_clic[0];
+        P.bouton = 0;
+    } else if(in.mouse_clic[1].x != -1) {
+        P.coord = in.mouse_clic[1];
+        P.bouton = 1;
+    } else {
+        P.coord = in.mouse_clic[2];
+        P.bouton = 2;
+    }
+	in.mouse_clic[0].x = in.mouse_clic[0].y = -1;
+    in.mouse_clic[1].x = in.mouse_clic[1].y = -1;
+    in.mouse_clic[2].x = in.mouse_clic[2].y = -1;
+	return P;
+}
+
 POINT position_souris(){
 	return in.mouse;
 }

@@ -53,6 +53,7 @@
 // ###############################
 	// Définition du type POINT
 	typedef struct point {int x,y;} POINT;
+	typedef struct souris {POINT coord; int bouton;} SOURIS;
 
 	// Définition du type COULEUR
 	typedef Uint32 COULEUR;
@@ -98,6 +99,11 @@
 	// Renvoie les coordonnées du point cliqué
 	// Instruction bloquante
 	POINT attendre_clic();
+	
+	// Attend que l'utilisateur clique avec un bouton
+	// Renvoie les coordonnées du point cliqué et le bouton appuyé
+	// Instruction bloquante
+	SOURIS attendre_multiclic();
 
 	// Position de la souris
 	// Instruction non bloquante
