@@ -6,7 +6,10 @@
 int NB_X = X_MAX;
 int NB_Y = Y_MAX;
 int NB_MINE = (X_MAX*Y_MAX-9);
+int NB_FLAG = 0;
+int NB_FLAG_MINE = 0;
 int MODE = 3;
+int END = 0;
 IMAGE images[17];
 
 /* Déplacé dans la graphics.h
@@ -239,7 +242,7 @@ GRILLE modif_grille(GRILLE grille, int i, int j)
 						grille.cell[i][j].affichage = 1;
 						modif = 1;
 						if(grille.cell[i][j].mine == 1)
-							printf("BOOOOMMMM\n");
+							END = 2;
 						else if(grille.cell[i][j].chiffre == 0) {
 							int i1, j1;
 							for(i1 = i - 1; i1 < i + 2; i1++)
@@ -259,9 +262,14 @@ GRILLE modif_grille(GRILLE grille, int i, int j)
 GRILLE modif_flag(GRILLE grille, int i, int j)
 {
 	if(grille.cell[i][j].affichage == 0) {
+		NB_FLAG++;
+		if(grille.cell[i][j].mine == 1)
+			NB_FLAG_MINE++;
 		grille.cell[i][j].affichage = 4;
-		
 	} else if(grille.cell[i][j].affichage == 4) {
+		NB_FLAG--;
+		if(grille.cell[i][j].mine == 1)
+			NB_FLAG_MINE--;
 		grille.cell[i][j].affichage = 5;
 	} else if(grille.cell[i][j].affichage == 5) {
 		grille.cell[i][j].affichage = 0;
@@ -285,7 +293,7 @@ int main(int argc,  char** argv)
 	affiche_cell_active(grille);
 	int prem_clic_g = 0;
 	SOURIS p;
-	while(1) {
+	while(END == 0) {
 		affiche_tout();
 		p = attendre_multiclic();
 		p.coord = convert_coord1(p.coord);
@@ -298,7 +306,13 @@ int main(int argc,  char** argv)
 		} else if(p.bouton == 2) {
 			grille = modif_flag(grille,p.coord.x,p.coord.y);
 		}
+		if(NB_FLAG == NB_FLAG_MINE && NB_FLAG_MINE == NB_MINE)
+			END = 1;
 	}
+	if(END == 1)
+		win();
+	if(END == 2)
+		lose();
 	attendre_echap();
 	quitter(0);
 }
