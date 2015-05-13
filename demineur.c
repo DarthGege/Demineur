@@ -185,19 +185,6 @@ GRILLE generation_grille(GRILLE grille, POINT p)
 	}
 } */
 
-void affiche_cell_inactif(GRILLE grille)
-{
-	POINT p;
-	int i,j;
-	for(j=0;j<NB_Y;j++)
-		for(i=0;i<NB_X;i++)
-			if(grille.cell[i][(NB_Y-1)-j].affichage == 0) {
-				p.x = i*SCALE; p.y = ((NB_Y-1)-j)*SCALE;
-				dessine_image(images[14], p);
-			}
-	affiche_tout();
-}
-
 void affiche_cell_active(GRILLE grille)
 {
 	POINT p;
@@ -216,7 +203,6 @@ void affiche_cell_active(GRILLE grille)
 			else
 				dessine_image(images[grille.cell[i][(NB_Y-1)-j].chiffre], p);
 		}
-	affiche_tout();
 }
 
 /* fonction générant trop d'iterations
@@ -263,6 +249,7 @@ GRILLE modif_grille(GRILLE grille, int i, int j)
 						}
 					}
 			affiche_cell_active(grille);
+			affiche_tout();
 			attendre(15);
 		} while(modif==1);
 	}    
@@ -295,10 +282,11 @@ int main(int argc,  char** argv)
 	initialiser_fenetre(fenetre.x, fenetre.y, "Demineur");
 	affiche_auto_off();
 	/* Corps du programme */
-	affiche_cell_inactif(grille);
+	affiche_cell_active(grille);
 	int prem_clic_g = 0;
 	SOURIS p;
 	while(1) {
+		affiche_tout();
 		p = attendre_multiclic();
 		p.coord = convert_coord1(p.coord);
 		if(prem_clic_g == 0 && p.bouton == 0) {
