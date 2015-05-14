@@ -3,11 +3,12 @@
 #define X_MAX 30
 #define Y_MAX 30
 
-int NB_X = X_MAX;
-int NB_Y = Y_MAX;
-int NB_MINE = (X_MAX*Y_MAX-9);
+int NB_X = 0;
+int NB_Y = 0;
+int NB_MINE = 0;
 int NB_FLAG = 0;
 int NB_FLAG_MINE = 0;
+int NB_HIDDEN = 0;
 int MODE = 3;
 int END = 0;
 IMAGE images[17];
@@ -73,11 +74,11 @@ void init_input()
 		printf("Grille de : (9-%d) Y = ? ",Y_MAX);
 		NB_Y = input_entier();
 	} while(NB_Y > Y_MAX || NB_Y < 9);
-	int MINE_MAX = (NB_X-1)*(NB_Y-1);
+	NB_HIDDEN = NB_X*NB_Y;
 	do {
-		printf("Nombre de mine : (10-%d) ? ",MINE_MAX);
+		printf("Nombre de mine : (10-%d) ? ",(NB_X-1)*(NB_Y-1));
 		NB_MINE = input_entier();
-	} while(NB_MINE > MINE_MAX || NB_MINE < 10);
+	} while(NB_MINE > (NB_X-1)*(NB_Y-1) || NB_MINE < 10);
 	do {
 		printf("Mode de jeux : (1:mine possible 2:safe 3:ouverture) ? ");
 		MODE = input_entier();
@@ -239,6 +240,7 @@ GRILLE modif_grille(GRILLE grille, int i, int j)
 				for(i=0;i<NB_X;i++)
 					if(grille.cell[i][j].affichage == 2) {
 						grille.cell[i][j].affichage = 1;
+						NB_HIDDEN--;
 						modif = 1;
 						if(grille.cell[i][j].mine == 1)
 							END = 2;
@@ -311,7 +313,7 @@ int main(int argc,  char** argv)
 		} else if(p.bouton == 2) {
 			grille = modif_flag(grille,p.coord.x,p.coord.y);
 		}
-		if(NB_FLAG == NB_FLAG_MINE && NB_FLAG_MINE == NB_MINE)
+		if((NB_FLAG == NB_FLAG_MINE && NB_FLAG_MINE == NB_MINE) || (NB_HIDDEN == NB_MINE))
 			END = 1;
 	}
 	if(END == 1)
