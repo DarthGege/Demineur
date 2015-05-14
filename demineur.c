@@ -227,7 +227,7 @@ GRILLE modif_grille(GRILLE grille, int i, int j)
 GRILLE modif_grille(GRILLE grille, int i, int j)
 {
 	if(grille.cell[i][j].affichage == 0 || grille.cell[i][j].affichage == 5) {
-		grille.cell[i][j].affichage = 3;
+		grille.cell[i][j].affichage = 2;
 		int modif = 0;
 		do {
 			modif = 0;
@@ -244,8 +244,8 @@ GRILLE modif_grille(GRILLE grille, int i, int j)
 							END = 2;
 						else if(grille.cell[i][j].chiffre == 0) {
 							int i1, j1;
-							for(i1 = i - 1; i1 < i + 2; i1++)
-								for(j1 = j - 1; j1 < j + 2; j1++)
+							for(i1 = i - 1; i1 <= i + 1; i1++)
+								for(j1 = j - 1; j1 <= j + 1; j1++)
 									if(i1 >= 0 && i1 < NB_X && j1 >= 0 && j1 < NB_Y && (grille.cell[i1][j1].affichage == 0 || grille.cell[i1][j1].affichage > 3))
 										grille.cell[i1][j1].affichage = 3;
 						}
