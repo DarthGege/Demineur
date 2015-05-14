@@ -59,15 +59,15 @@ void init_input()
   images[6] = charge_image("res/6.bmp");
   images[7] = charge_image("res/7.bmp");
   images[8] = charge_image("res/8.bmp");
-  images[9] = charge_image("res/mine.bmp");
+  images[9] = charge_image("res/mine.bmp"); // 8
   images[10] = charge_image("res/redmine.bmp"); // 6
-  images[11] = charge_image("res/error.bmp");
+  images[11] = charge_image("res/error.bmp"); // 9
   images[12] = charge_image("res/flag.bmp"); // 4
-  images[13] = charge_image("res/hint.bmp");
+  images[13] = charge_image("res/hint.bmp"); // 5
   images[14] = charge_image("res/unknow.bmp"); // 0
   images[15] = charge_image("res/safe.bmp");
   images[16] = charge_image("res/danger.bmp");
-  images[17] = charge_image("res/win.bmp");
+  images[17] = charge_image("res/win.bmp"); // 7
   
   do {
     printf("Grille de : (9-%d) X = ? ",X_MAX);
@@ -194,19 +194,27 @@ void affiche_cell_active()
   int i,j;
   for(j=0;j<NB_Y;j++)
     for(i=0;i<NB_X;i++) {
-      p.x = i*SCALE; p.y = ((NB_Y-1)-j)*SCALE;
-      if(grille.cell[i][(NB_Y-1)-j].affichage == 0)
+      p.x = i*SCALE; p.y = j*SCALE;
+      if(grille.cell[i][j].affichage == 0) // unknow
         dessine_image(images[14], p);
-      else if(grille.cell[i][(NB_Y-1)-j].affichage == 4)
+      else if(grille.cell[i][j].affichage == 4) // flag
         dessine_image(images[12], p);
-      else if(grille.cell[i][(NB_Y-1)-j].affichage == 5)
+      else if(grille.cell[i][j].affichage == 5) // hint
         dessine_image(images[13], p);
-      else if(grille.cell[i][(NB_Y-1)-j].mine == 1)
-        dessine_image(images[9], p);
-      else if(grille.cell[i][(NB_Y-1)-j].mine == 6)
+      else if(grille.cell[i][j].affichage == 6) // redmine
         dessine_image(images[10], p);
+      else if(grille.cell[i][j].affichage == 7) // win
+        dessine_image(images[17], p);
+      else if(grille.cell[i][j].affichage == 8) // mine
+        dessine_image(images[9], p);
+      else if(grille.cell[i][j].affichage == 9) // error
+        dessine_image(images[11], p);
+      else if(grille.cell[i][j].affichage == 10) // safe
+        dessine_image(images[15], p);
+      else if(grille.cell[i][j].affichage == 11) // danger
+        dessine_image(images[16], p);
       else
-        dessine_image(images[grille.cell[i][(NB_Y-1)-j].chiffre], p);
+        dessine_image(images[grille.cell[i][j].chiffre], p);
     }
 }
 
@@ -287,10 +295,29 @@ void modif_flag(int i, int j)
 }
 void win()
 {
+  int i,j;
+  for(j=0;j<NB_Y;j++)
+    for(i=0;i<NB_X;i++)
+      if(grille.cell[i][j].mine == 1)
+        grille.cell[i][j].affichage = 7;
+  affiche_cell_active();
+  affiche_tout();
   printf("WINNNNNERRRRR !!!!\n");
 }
 void lose()
 {
+  int i,j;
+  for(j=0;j<NB_Y;j++)
+    for(i=0;i<NB_X;i++) {
+      if(grille.cell[i][j].affichage == 4 && grille.cell[i][j].mine == 0)
+        grille.cell[i][j].affichage = 9;
+      else if(grille.cell[i][j].affichage != 4 && grille.cell[i][j].mine == 1 && grille.cell[i][j].affichage != 6)
+        grille.cell[i][j].affichage = 8;
+      else if(grille.cell[i][j].affichage == 4 && grille.cell[i][j].mine == 1)
+        grille.cell[i][j].affichage = 7;
+    }
+  affiche_cell_active();
+  affiche_tout();
   printf("LOOOOOOOSSSSERRRRRRR !!!!\n");
 }
 
