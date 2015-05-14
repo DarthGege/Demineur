@@ -277,6 +277,12 @@ GRILLE modif_flag(GRILLE grille, int i, int j)
 	affiche_cell_active(grille);
 	return grille;
 }
+void win()
+{
+}
+void lose()
+{
+}
 
 		/* Programme : */
 int main(int argc,  char** argv)
