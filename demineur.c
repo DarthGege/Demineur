@@ -36,6 +36,8 @@ struct grille
 };
 typedef struct grille GRILLE;
 
+GRILLE grille;
+
 		/* Fonctions : */
 
 int input_entier() // Récupéré de toolbox.c pour y apporter des modifications d'affichage
@@ -58,11 +60,11 @@ void init_input()
 	images[7] = charge_image("res/7.bmp");
 	images[8] = charge_image("res/8.bmp");
 	images[9] = charge_image("res/mine.bmp");
-	images[10] = charge_image("res/redmine.bmp");
+	images[10] = charge_image("res/redmine.bmp"); // 6
 	images[11] = charge_image("res/error.bmp");
-	images[12] = charge_image("res/flag.bmp");
+	images[12] = charge_image("res/flag.bmp"); // 4
 	images[13] = charge_image("res/hint.bmp");
-	images[14] = charge_image("res/unknow.bmp");
+	images[14] = charge_image("res/unknow.bmp"); // 0
 	images[15] = charge_image("res/safe.bmp");
 	images[16] = charge_image("res/danger.bmp");
 	images[17] = charge_image("res/win.bmp");
@@ -141,17 +143,15 @@ CELLULE init_cell()
 	return cellule;
 }
 
-GRILLE init_grille()
+void init_grille()
 {
-	GRILLE grille;
 	int i,j;
 	for(i=0;i<NB_X;i++)
 		for(j=0;j<NB_Y;j++)
 			grille.cell[i][j] = init_cell();
-	return grille;
 }
 
-GRILLE generation_grille(GRILLE grille, POINT p)
+void generation_grille(POINT p)
 {
 	POINT mine;
 	int i=0, i1, j1;
@@ -169,10 +169,9 @@ GRILLE generation_grille(GRILLE grille, POINT p)
 			i++;
 		}
 	}
-	return grille;
 }
 
-/* void affiche_console(GRILLE grille)
+/* void affiche_console()
 {
 	int i,j;
 	for(j=0;j<NB_Y;j++) {
@@ -189,7 +188,7 @@ GRILLE generation_grille(GRILLE grille, POINT p)
 	}
 } */
 
-void affiche_cell_active(GRILLE grille)
+void affiche_cell_active()
 {
 	POINT p;
 	int i,j;
@@ -204,13 +203,15 @@ void affiche_cell_active(GRILLE grille)
 				dessine_image(images[13], p);
 			else if(grille.cell[i][(NB_Y-1)-j].mine == 1)
 				dessine_image(images[9], p);
+			else if(grille.cell[i][(NB_Y-1)-j].mine == 6)
+				dessine_image(images[10], p);
 			else
 				dessine_image(images[grille.cell[i][(NB_Y-1)-j].chiffre], p);
 		}
 }
 
 /* fonction générant trop d'iterations
-GRILLE modif_grille(GRILLE grille, int i, int j)
+void modif_grille(int i, int j)
 {
 	if(grille.cell[i][j].affichage == 0) {
 		grille.cell[i][j].affichage = 1;
@@ -219,17 +220,24 @@ GRILLE modif_grille(GRILLE grille, int i, int j)
 			for(i1 = i - 1; i1 < i + 2; i1++)
 				for(j1 = j - 1; j1 < j + 2; j1++)
 					if(i1 >= 0 && i1 < NB_X && j1 >= 0 && j1 < NB_Y)
-						grille = modif_grille(grille,i1,j1);
+						modif_grille(i1,j1);
 		}
+		affiche_cell_active();
+		affiche_tout();
+		attendre(15);
 	}
-	return grille;
 }
 /**/
 
-GRILLE modif_grille(GRILLE grille, int i, int j)
+// 0=caché 1=affiché 2=à calculer 3=à reporter au prochain cycle
+void modif_grille(int i, int j)
 {
 	if(grille.cell[i][j].affichage == 0 || grille.cell[i][j].affichage == 5) {
 		grille.cell[i][j].affichage = 2;
+		if(grille.cell[i][j].mine == 1) {
+			END = 2;
+			grille.cell[i][j].affichage = 6;
+		}
 		int modif = 0;
 		do {
 			modif = 0;
@@ -249,19 +257,18 @@ GRILLE modif_grille(GRILLE grille, int i, int j)
 							int i1, j1;
 							for(i1 = i - 1; i1 <= i + 1; i1++)
 								for(j1 = j - 1; j1 <= j + 1; j1++)
-									if(i1 >= 0 && i1 < NB_X && j1 >= 0 && j1 < NB_Y && (grille.cell[i1][j1].affichage == 0 || grille.cell[i1][j1].affichage > 3))
+									if(i1 >= 0 && i1 < NB_X && j1 >= 0 && j1 < NB_Y && (grille.cell[i1][j1].affichage == 0 || grille.cell[i1][j1].affichage == 3 || grille.cell[i1][j1].affichage == 4))
 										grille.cell[i1][j1].affichage = 3;
 						}
 					}
-			affiche_cell_active(grille);
+			affiche_cell_active();
 			affiche_tout();
 			attendre(15);
 		} while(modif==1);
-	}    
-	return grille;
+	}
 }
 
-GRILLE modif_flag(GRILLE grille, int i, int j)
+void modif_flag(int i, int j)
 {
 	if(grille.cell[i][j].affichage == 0) {
 		NB_FLAG++;
@@ -276,8 +283,7 @@ GRILLE modif_flag(GRILLE grille, int i, int j)
 	} else if(grille.cell[i][j].affichage == 5) {
 		grille.cell[i][j].affichage = 0;
 	}
-	affiche_cell_active(grille);
-	return grille;
+	affiche_cell_active();
 }
 void win()
 {
@@ -295,12 +301,12 @@ int main(int argc,  char** argv)
 	init_input();
 	// verification entrées utilisateur 
 	printf("\nLa grille ferra : %d * %d avec %d mines avec le mode n_%d\n\n",NB_X,NB_Y,NB_MINE,MODE);
-	GRILLE grille = init_grille(); // grille grille... grille grille grille ? grille grille le grillon. grille ?
+	init_grille();
 	POINT fenetre; fenetre.x = (NB_X*SCALE); fenetre.y = (NB_Y*SCALE);
 	initialiser_fenetre(fenetre.x, fenetre.y, "Demineur");
 	affiche_auto_off();
 	/* Corps du programme */
-	affiche_cell_active(grille);
+	affiche_cell_active();
 	int prem_clic_g = 0;
 	SOURIS p;
 	while(END == 0) {
@@ -308,13 +314,13 @@ int main(int argc,  char** argv)
 		p = attendre_multiclic();
 		p.coord = convert_coord1(p.coord);
 		if(prem_clic_g == 0 && p.bouton == 0) {
-			grille = generation_grille(grille,p.coord);
+			generation_grille(grille,p.coord);
 			prem_clic_g++;
 		}
 		if(p.bouton == 0) {
-			grille = modif_grille(grille,p.coord.x,p.coord.y);
+			modif_grille(grille,p.coord.x,p.coord.y);
 		} else if(p.bouton == 2) {
-			grille = modif_flag(grille,p.coord.x,p.coord.y);
+			modif_flag(grille,p.coord.x,p.coord.y);
 		}
 		if((NB_FLAG == NB_FLAG_MINE && NB_FLAG_MINE == NB_MINE) || (NB_HIDDEN == NB_MINE))
 			END = 1;
