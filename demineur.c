@@ -11,7 +11,7 @@ int NB_FLAG_MINE = 0;
 int NB_HIDDEN = 0;
 int MODE = 3;
 int END = 0;
-IMAGE images[17];
+IMAGE images[32];
 
 /* Déplacé dans la graphics.h
 struct souris
@@ -65,6 +65,7 @@ void init_input()
 	images[14] = charge_image("res/unknow.bmp");
 	images[15] = charge_image("res/safe.bmp");
 	images[16] = charge_image("res/danger.bmp");
+	images[17] = charge_image("res/win.bmp");
 	
 	do {
 		printf("Grille de : (9-%d) X = ? ",X_MAX);
