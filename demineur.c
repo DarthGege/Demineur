@@ -87,7 +87,6 @@ void init_input()
 /* Déplacé dans la graphics.c
 SOURIS attendre_multiclic()
 {
-	INPUT in;
 	SOURIS P;
 	
 	// On force l'attente du prochain clic!
