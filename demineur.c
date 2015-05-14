@@ -314,13 +314,13 @@ int main(int argc,  char** argv)
 		p = attendre_multiclic();
 		p.coord = convert_coord1(p.coord);
 		if(prem_clic_g == 0 && p.bouton == 0) {
-			generation_grille(grille,p.coord);
+			generation_grille(p.coord);
 			prem_clic_g++;
 		}
 		if(p.bouton == 0) {
-			modif_grille(grille,p.coord.x,p.coord.y);
+			modif_grille(p.coord.x,p.coord.y);
 		} else if(p.bouton == 2) {
-			modif_flag(grille,p.coord.x,p.coord.y);
+			modif_flag(p.coord.x,p.coord.y);
 		}
 		if((NB_FLAG == NB_FLAG_MINE && NB_FLAG_MINE == NB_MINE) || (NB_HIDDEN == NB_MINE))
 			END = 1;
