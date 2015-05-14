@@ -280,9 +280,11 @@ GRILLE modif_flag(GRILLE grille, int i, int j)
 }
 void win()
 {
+	printf("WINNNNNERRRRR !!!!\n");
 }
 void lose()
 {
+	printf("LOOOOOOOSSSSERRRRRRR !!!!\n");
 }
 
 		/* Programme : */
@@ -318,7 +320,7 @@ int main(int argc,  char** argv)
 	}
 	if(END == 1)
 		win();
-	if(END == 2)
+	else if(END == 2)
 		lose();
 	attendre_echap();
 	quitter(0);
