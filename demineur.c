@@ -358,6 +358,8 @@ void solver() {
           if(hide == grille.cell[i][j].chiffre)
             for(i1 = i - 1; i1 < i + 2; i1++)
               for(j1 = j - 1; j1 < j + 2; j1++)
+                if(in_grid(i1,j1) is_display(i1,j1,0) &&) {
+                  set_display(i1,j1,11); //BLURP
                   modif++;
                 }
         }
@@ -374,6 +376,7 @@ void solver() {
             for(i1 = i - 1; i1 < i + 2; i1++)
               for(j1 = j - 1; j1 < j + 2; j1++)
               if(in_grid(i1,j1) && is_display(i1,j1,0)) {
+                  set_display(i1,j1,10); //BLURP
                   modif++;
               }
         }
