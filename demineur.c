@@ -9,7 +9,7 @@ int NB_MINE = 0;
 int NB_FLAG = 0;
 int NB_FLAG_MINE = 0;
 int NB_HIDDEN = 0;
-int MODE = 3;
+int MODE = 0;
 int END = 0;
 IMAGE images[32];
 
@@ -19,15 +19,6 @@ struct souris {
   int bouton;
 };
 typedef struct souris SOURIS;
-/**/
-
-/*
-struct cellule {//BLURP
-  int mine;
-  int chiffre;
-  int affichage;
-};
-typedef struct cellule CELLULE;
 /**/
 
 typedef struct {
@@ -48,6 +39,7 @@ int input_entier() { //BLURP // Récupéré de toolbox.c pour y apporter des mod
   int n;
   fflush(stdout);
   scanf("%d",&n);
+  while (getchar()!='\n'); // Permet de vider l'entrée utilisateur si le contenu n'est pas un nombre
   return n;
 }
 
@@ -153,7 +145,7 @@ POINT convert_coord2(POINT p) {
   return p;
 }
 
-CELLULE init_cell() {//BLURP
+CELLULE init_cell() {
   CELLULE cellule;
   cellule.mine = 0;
   cellule.chiffre = 0;
@@ -174,13 +166,13 @@ void generation_grille(POINT p) {
   while(i<NB_MINE) {
     mine.x = entier_aleatoire(NB_X); mine.y = entier_aleatoire(NB_Y);
     if(has_mine(mine.x,mine.y)) {}
-    else if(mine.x==p.x && mine.y==p.y && MODE>=2) {}
-    else if(mine.x >= p.x-1 && mine.x <= p.x+1 && mine.y >= p.y-1 && mine.y <= p.y+1 && MODE>=3) {}//BLURP
+    else if(mine.x == p.x && mine.y == p.y && MODE >= 2) {}
+    else if(mine.x >= p.x-1 && mine.x <= p.x+1 && mine.y >= p.y-1 && mine.y <= p.y+1 && MODE >= 3) {}//BLURP
     else {
       grille.cell[mine.x][mine.y].mine = 1;
-      for(i1 = mine.x - 1; i1 < mine.x + 2; i1++)
-        for(j1 = mine.y - 1; j1 < mine.y + 2; j1++)
-          if(i1 >= 0 && i1 < NB_X && j1 >= 0 && j1 < NB_Y)
+      for(i1 = mine.x - 1; i1 <= mine.x + 1; i1++)
+        for(j1 = mine.y - 1; j1 <= mine.y + 1; j1++)
+          if(in_grid(i1,j1))
             grille.cell[i1][j1].chiffre++;
       i++;
     }
@@ -257,10 +249,10 @@ void modif_grille(int i, int j) {
 // 0=caché 1=affiché 2=à calculer 3=à reporter au prochain cycle
 void modif_grille(int i, int j) {
   if(!is_display(i,j,4) && is_hide(i,j)) {
-    set_display(i,j,2);//BLURP 
+    set_display(i,j,2);
     if(has_mine(i,j)) {
       END = 2;
-      set_display(i,j,6);//BLURP 
+      set_display(i,j,6);
     }
     int modif = 0;
     do {
@@ -268,11 +260,11 @@ void modif_grille(int i, int j) {
       for(j=0;j<NB_Y;j++)
         for(i=0;i<NB_X;i++)
           if(is_display(i,j,3))
-            set_display(i,j,2);//BLURP 
+            set_display(i,j,2);
       for(j=0;j<NB_Y;j++)
         for(i=0;i<NB_X;i++)
           if(is_display(i,j,2)) {
-            set_display(i,j,1);//BLURP 
+            set_display(i,j,1);
             NB_HIDDEN--;
             modif = 1;
             if(grille.cell[i][j].chiffre == 0) {
@@ -280,7 +272,7 @@ void modif_grille(int i, int j) {
               for(i1 = i - 1; i1 <= i + 1; i1++)
                 for(j1 = j - 1; j1 <= j + 1; j1++)
                   if(in_grid(i1,j1) && is_hide(i1,j1))
-                    set_display(i1,j1,3);//BLURP 
+                    set_display(i1,j1,3);
             }
           }
       affiche_cell_active();
@@ -291,18 +283,18 @@ void modif_grille(int i, int j) {
 }
 
 void modif_flag(int i, int j) {
-  if(grille.cell[i][j].affichage == 0 || grille.cell[i][j].affichage == 10 ||grille.cell[i][j].affichage == 11) {//BLURP 
+  if(is_display(i,j,0) || is_display(i,j,10) || is_display(i,j,11)) {
     NB_FLAG++;
     if(has_mine(i,j))
       NB_FLAG_MINE++;
-    set_display(i,j,4);//BLURP 
-  } else if(is_display(i,j,4)) {//BLURP 
+    set_display(i,j,4);
+  } else if(is_display(i,j,4)) {
     NB_FLAG--;
     if(has_mine(i,j))
       NB_FLAG_MINE--;
-    set_display(i,j,5);//BLURP 
-  } else if(is_display(i,j,5)) {//BLURP 
-    set_display(i,j,0);//BLURP 
+    set_display(i,j,5);
+  } else if(is_display(i,j,5)) {
+    set_display(i,j,0);
   }
   affiche_cell_active();
 }
@@ -312,7 +304,7 @@ void win() {
   for(j=0;j<NB_Y;j++)
     for(i=0;i<NB_X;i++)
       if(has_mine(i,j))
-        set_display(i,j,7);//BLURP 
+        set_display(i,j,7);
   affiche_cell_active();
   affiche_tout();
   printf("WINNNNNERRRRR !!!!\n");//BLURP 
@@ -322,12 +314,12 @@ void lose() {
   int i,j;
   for(j=0;j<NB_Y;j++)
     for(i=0;i<NB_X;i++) {
-      if(is_display(i,j,4) && !has_mine(i,j))//BLURP 
-        grille.cell[i][j].affichage = 9;//BLURP 
-      else if(!is_display(i,j,4) && has_mine(i,j) && !is_display(i,j,6))//BLURP 
-        grille.cell[i][j].affichage = 8;//BLURP 
-      else if(is_display(i,j,4) && has_mine(i,j))//BLURP 
-        set_display(i,j,7);//BLURP 
+      if(is_display(i,j,4) && !has_mine(i,j))
+        set_display(i,j,9);
+      else if(!is_display(i,j,4) && has_mine(i,j) && !is_display(i,j,6))
+        set_display(i,j,8);
+      else if(is_display(i,j,4) && has_mine(i,j))
+        set_display(i,j,7);
     }
   affiche_cell_active();
   affiche_tout();
@@ -339,7 +331,7 @@ void reset_solver() {
   for(i=0;i<NB_X;i++)
     for(j=0;j<NB_Y;j++)
       if(is_display(i,j,10) || is_display(i,j,11))
-        set_display(i,j,0);//BLURP 
+        set_display(i,j,0);
 }
 
 void solver() {
@@ -353,14 +345,14 @@ void solver() {
         if(is_display(i,j,1)) {
           for(i1 = i - 1; i1 < i + 2; i1++)
             for(j1 = j - 1; j1 < j + 2; j1++)
-              if(in_grid(i1,j1) && is_hide(i1,j1))
+              if(in_grid(i1,j1) && is_hide(i1,j1) && !is_display(i1,j1,10))
                 hide++;
           if(hide == grille.cell[i][j].chiffre)
             for(i1 = i - 1; i1 < i + 2; i1++)
               for(j1 = j - 1; j1 < j + 2; j1++)
-                if(in_grid(i1,j1) is_display(i1,j1,0) &&) {
-                  set_display(i1,j1,11); //BLURP
-                  modif++;
+                if(in_grid(i1,j1) && is_display(i1,j1,0)) {
+                  set_display(i1,j1,11);
+                  modif = 1;
                 }
         }
       }
@@ -370,18 +362,18 @@ void solver() {
         if(is_display(i,j,1)) {
           for(i1 = i - 1; i1 < i + 2; i1++)
             for(j1 = j - 1; j1 < j + 2; j1++)
-              if(in_grid(i1,j1) && is_display(i1,j1,11))
+              if(in_grid(i1,j1) && (is_display(i1,j1,11) || is_display(i1,j1,4)))
                 hide++;
           if(hide == grille.cell[i][j].chiffre)
             for(i1 = i - 1; i1 < i + 2; i1++)
               for(j1 = j - 1; j1 < j + 2; j1++)
               if(in_grid(i1,j1) && is_display(i1,j1,0)) {
-                  set_display(i1,j1,10); //BLURP
-                  modif++;
+                  set_display(i1,j1,10);
+                  modif = 1;
               }
         }
       }
-  } while(modif==1);
+  } while(modif == 1);
   affiche_cell_active();
   affiche_tout();
   printf("TRICHEUR !!!!\n"); //BLURP
@@ -390,8 +382,7 @@ void solver() {
     /* Programme : */
 int main(int argc,  char** argv) {
     /* Initialisation */
-  init_input();
-  // verification entrées utilisateur 
+  init_input(); // verification entrées utilisateur 
   printf("\nLa grille ferra : %d * %d avec %d mines avec le mode n_%d\n\n",NB_X,NB_Y,NB_MINE,MODE);
   init_grille();
   POINT fenetre; fenetre.x = (NB_X*SCALE); fenetre.y = (NB_Y*SCALE);//BLURP
