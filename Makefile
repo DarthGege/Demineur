@@ -63,7 +63,7 @@ ifneq ($(wildcard net/net.h),)
 endif
 ############################################
 
-all: $(SOURCES) $(EXECUTABLE)$(EXEEXT)
+all: clean $(SOURCES) $(EXECUTABLE)$(EXEEXT)
 
 
 # Compilation de l'environnement SDL ############
