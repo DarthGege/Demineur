@@ -1,0 +1,1477 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="167.62059mm"
+   height="65.193336mm"
+   viewBox="0 0 593.93123 231.00001"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r"
+   sodipodi:docname="config.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.0548237"
+     inkscape:cx="444.21048"
+     inkscape:cy="168.05265"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:window-width="1278"
+     inkscape:window-height="1027"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="0"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4235"
+       spacingx="33"
+       spacingy="33.000001"
+       originx="0"
+       originy="-2.2107222e-05" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-821.36218)">
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:20, 20;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4599"
+       width="593.84741"
+       height="231"
+       x="0.083794422"
+       y="821.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/0.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/0.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4144"
+       x="165"
+       y="921.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/2.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/2.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4166"
+       x="330"
+       y="921.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/3.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/3.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4177"
+       x="363"
+       y="921.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/8.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/8.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4232"
+       x="99"
+       y="921.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4245"
+       x="132"
+       y="888.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/plus.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/plus.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4278"
+       x="165"
+       y="888.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/x.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/x.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4289"
+       x="132"
+       y="921.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/2.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/2.bmp"
+       y="921.36218"
+       x="66"
+       id="image4292"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/minus.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/minus.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4313"
+       x="99"
+       y="954.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/mine.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/mine.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4324"
+       x="264"
+       y="921.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/plus.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/plus.bmp"
+       y="888.36218"
+       x="99"
+       id="image4327"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/9.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/9.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4337"
+       x="198"
+       y="921.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/plus.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/plus.bmp"
+       y="888.36218"
+       x="198"
+       id="image4340"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/minus.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/minus.bmp"
+       y="954.36218"
+       x="66"
+       id="image4380"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="954.36218"
+       x="132"
+       id="image4386"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/plus.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/plus.bmp"
+       y="888.36218"
+       x="330"
+       id="image4388"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/plus.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/plus.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4390"
+       x="363"
+       y="888.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/minus.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/minus.bmp"
+       y="954.36218"
+       x="363"
+       id="image4411"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/minus.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/minus.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4413"
+       x="330"
+       y="954.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="888.36218"
+       x="264"
+       id="image4415"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4421"
+       x="264"
+       y="954.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4425"
+       x="33"
+       y="888.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4427"
+       x="33"
+       y="921.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="954.36218"
+       x="33"
+       id="image4429"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="888.36218"
+       x="528"
+       id="image4431"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="921.36218"
+       x="528"
+       id="image4433"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4435"
+       x="528"
+       y="954.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       y="888.36218"
+       x="0"
+       id="image4437"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4439"
+       x="0"
+       y="921.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       y="954.36218"
+       x="0"
+       id="image4441"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4443"
+       x="0"
+       y="987.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       y="1020.3621"
+       x="0"
+       id="image4445"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4447"
+       x="0"
+       y="855.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       y="822.36218"
+       x="0"
+       id="image4449"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4451"
+       x="561"
+       y="822.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       y="855.36218"
+       x="561"
+       id="image4453"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4455"
+       x="561"
+       y="888.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       y="921.36218"
+       x="561"
+       id="image4457"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4459"
+       x="561"
+       y="954.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       y="987.36218"
+       x="561"
+       id="image4461"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4463"
+       x="561"
+       y="1020.3621" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/plus.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/plus.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4490"
+       x="297"
+       y="888.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/0.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/0.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4500"
+       x="297"
+       y="921.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4503"
+       x="33"
+       y="822.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       y="822.36218"
+       x="66"
+       id="image4505"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4507"
+       x="99"
+       y="822.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       y="822.36218"
+       x="132"
+       id="image4509"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4511"
+       x="165"
+       y="822.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       y="822.36218"
+       x="198"
+       id="image4513"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4515"
+       x="264"
+       y="822.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       y="822.36218"
+       x="297"
+       id="image4517"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4519"
+       x="330"
+       y="822.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       y="822.36218"
+       x="363"
+       id="image4521"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4523"
+       x="429"
+       y="822.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       y="822.36218"
+       x="528"
+       id="image4525"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4527"
+       x="33"
+       y="1020.3621" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       y="1020.3621"
+       x="66"
+       id="image4529"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4531"
+       x="99"
+       y="1020.3621" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       y="1020.3621"
+       x="132"
+       id="image4533"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4535"
+       x="165"
+       y="1020.3621" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       y="1020.3621"
+       x="198"
+       id="image4537"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4539"
+       x="264"
+       y="1020.3621" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       y="1020.3621"
+       x="297"
+       id="image4541"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4543"
+       x="330"
+       y="1020.3621" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       y="1020.3621"
+       x="363"
+       id="image4545"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4547"
+       x="429"
+       y="1020.3621" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       y="1020.3621"
+       x="528"
+       id="image4549"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="855.36218"
+       x="33"
+       id="image4551"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4553"
+       x="66"
+       y="855.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4555"
+       x="99"
+       y="855.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="855.36218"
+       x="132"
+       id="image4557"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4559"
+       x="165"
+       y="855.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="855.36218"
+       x="198"
+       id="image4561"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="855.36218"
+       x="264"
+       id="image4563"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4565"
+       x="297"
+       y="855.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="855.36218"
+       x="330"
+       id="image4567"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4569"
+       x="363"
+       y="855.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4571"
+       x="429"
+       y="855.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="855.36218"
+       x="528"
+       id="image4573"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4575"
+       x="33"
+       y="987.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="987.36218"
+       x="66"
+       id="image4577"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="987.36218"
+       x="99"
+       id="image4579"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4581"
+       x="132"
+       y="987.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="987.36218"
+       x="165"
+       id="image4583"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4585"
+       x="198"
+       y="987.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4587"
+       x="264"
+       y="987.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="987.36218"
+       x="297"
+       id="image4589"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4591"
+       x="330"
+       y="987.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="987.36218"
+       x="363"
+       id="image4593"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="987.36218"
+       x="429"
+       id="image4595"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4597"
+       x="528"
+       y="987.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/safe.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/safe.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4620"
+       x="495"
+       y="921.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/danger.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/danger.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4631"
+       x="462"
+       y="921.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/mine.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/mine.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4642"
+       x="429"
+       y="888.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/0.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/0.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4664"
+       x="495"
+       y="888.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/x.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/x.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4675"
+       x="462"
+       y="888.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/danger.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/danger.bmp"
+       y="921.36218"
+       x="429"
+       id="image4678"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="855.36218"
+       x="462"
+       id="image4680"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="855.36218"
+       x="495"
+       id="image4682"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4684"
+       x="429"
+       y="954.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4686"
+       x="462"
+       y="954.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="954.36218"
+       x="495"
+       id="image4690"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4692"
+       x="462"
+       y="1020.3621" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       y="1020.3621"
+       x="495"
+       id="image4694"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4696"
+       x="462"
+       y="987.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4698"
+       x="495"
+       y="987.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4700"
+       x="462"
+       y="822.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       y="822.36218"
+       x="495"
+       id="image4702"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4704"
+       x="396"
+       y="888.36224" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4706"
+       x="396"
+       y="921.36224" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="954.36224"
+       x="396"
+       id="image4708"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4710"
+       x="396"
+       y="822.36224" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4712"
+       x="396"
+       y="1020.3621" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4714"
+       x="396"
+       y="855.36224" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="987.36224"
+       x="396"
+       id="image4716"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="888.36224"
+       x="231"
+       id="image4732"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="921.36224"
+       x="231"
+       id="image4734"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4736"
+       x="231"
+       y="954.36224" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       y="822.36224"
+       x="231"
+       id="image4738"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       y="1020.3621"
+       x="231"
+       id="image4740"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="855.36224"
+       x="231"
+       id="image4742"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4744"
+       x="231"
+       y="987.36224" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4757"
+       x="297"
+       y="954.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="954.36218"
+       x="165"
+       id="image4759"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4761"
+       x="198"
+       y="954.36218" />
+    <image
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       y="888.36218"
+       x="66"
+       id="image4763"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32" />
+    <image
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4917"
+       x="528"
+       y="888.36218"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp" />
+    <image
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4919"
+       x="528"
+       y="921.36218"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp" />
+    <image
+       y="954.36218"
+       x="528"
+       id="image4921"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp" />
+    <image
+       y="822.36218"
+       x="561"
+       id="image4923"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp" />
+    <image
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4925"
+       x="561"
+       y="855.36218"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp" />
+    <image
+       y="888.36218"
+       x="561"
+       id="image4927"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp" />
+    <image
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4929"
+       x="561"
+       y="921.36218"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp" />
+    <image
+       y="954.36218"
+       x="561"
+       id="image4931"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp" />
+    <image
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4933"
+       x="561"
+       y="987.36218"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp" />
+    <image
+       y="1020.3621"
+       x="561"
+       id="image4935"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp" />
+    <image
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4937"
+       x="528"
+       y="822.36218"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp" />
+    <image
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4939"
+       x="528"
+       y="1020.3621"
+       xlink:href="/home/user/Documents/Demineur/res/off.bmp"
+       sodipodi:absref="/home/user/Documents/Demineur/res/off.bmp" />
+    <image
+       width="32"
+       height="32"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image4941"
+       x="528"
+       y="855.36218"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp" />
+    <image
+       y="987.36218"
+       x="528"
+       id="image4943"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="32"
+       width="32"
+       xlink:href="/home/user/Documents/Demineur/res/empty.bmp"
+       sodipodi:absref="/home/user/Documents/Demineur/res/empty.bmp" />
+  </g>
+</svg>
