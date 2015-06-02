@@ -3,24 +3,6 @@
 #define X_MAX 30
 #define Y_MAX 30
 
-int NB_X = 0;
-int NB_Y = 0;
-int NB_MINE = 0;
-int NB_FLAG = 0;
-int NB_FLAG_MINE = 0;
-int NB_HIDDEN = 0;
-int MODE = 0;
-int END = 0;
-IMAGE images[32];
-
-/* Déplacé dans la graphics.h
-struct souris {
-  POINT coord;
-  int bouton;
-};
-typedef struct souris SOURIS;
-/**/
-
 typedef struct {
   int mine;
   int chiffre;
@@ -31,7 +13,25 @@ typedef struct {
   CELLULE cell[X_MAX][Y_MAX];
 } GRILLE;
 
+/* Déplacé dans la graphics.h
+struct souris {
+  POINT coord;
+  int bouton;
+};
+typedef struct souris SOURIS;
+/**/
+
+int NB_X = 0;
+int NB_Y = 0;
+int NB_MINE = 0;
+int NB_FLAG = 0;
+int NB_FLAG_MINE = 0;
+int NB_HIDDEN = 0;
+int MODE = 0;
+int END = 0;
+IMAGE images[32];
 GRILLE grille;
+SOURIS click;
 
     /* Fonctions : */
 
@@ -141,15 +141,15 @@ SOURIS attendre_multiclic() {
 }
 /**/
 
-POINT convert_coord1(POINT p) {
-  p.x = p.x/SCALE; p.y = p.y/SCALE;
-  return p;
+void convert_coord1() {
+  click.coord.x = click.coord.x/SCALE; click.coord.y = click.coord.y/SCALE;
 }
 
-POINT convert_coord2(POINT p) {
-  p.x = p.x*SCALE; p.y = p.y*SCALE;
-  return p;
+/* Inutile
+void convert_coord2() {
+  click.coord.x = click.coord.x*SCALE; click.coord.y = click.coord.y*SCALE;
 }
+/**/
 
 CELLULE init_cell() {
   CELLULE cellule;
@@ -166,14 +166,14 @@ void init_grille() {
       grille.cell[i][j] = init_cell();
 }
 
-void generation_grille(POINT p) {
+void generation_grille() {
   POINT mine;
   int i=0, i1, j1;
   while(i<NB_MINE) {
     mine.x = entier_aleatoire(NB_X); mine.y = entier_aleatoire(NB_Y);
     if(has_mine(mine.x,mine.y)) {}
-    else if(mine.x == p.x && mine.y == p.y && MODE >= 2) {}
-    else if(mine.x >= p.x-1 && mine.x <= p.x+1 && mine.y >= p.y-1 && mine.y <= p.y+1 && MODE >= 3) {}//BLURP
+    else if(mine.x == click.coord.x && mine.y == click.coord.y && MODE >= 2) {}
+    else if(mine.x >= click.coord.x-1 && mine.x <= click.coord.x+1 && mine.y >= click.coord.y-1 && mine.y <= click.coord.y+1 && MODE >= 3) {}//BLURP
     else {
       grille.cell[mine.x][mine.y].mine = 1;
       for(i1 = mine.x - 1; i1 <= mine.x + 1; i1++)
@@ -208,24 +208,24 @@ void affiche_cell_active() { //BLURP
     for(i=0;i<NB_X;i++) {
       p.x = i*SCALE; p.y = j*SCALE;
       if(is_display(i,j,0)) // 0=unknow
-        dessine_image(images[15], p);
+        dessine_image(images[17], p);
       else if(is_display(i,j,4)) // 4=flag
-        dessine_image(images[16], p);
+        dessine_image(images[15], p);
       else if(is_display(i,j,5)) // 5=hint
-        dessine_image(images[12], p);
-      else if(is_display(i,j,6)) // 6=redmine
-        dessine_image(images[14], p);
-      else if(is_display(i,j,7)) // 7=win
-        dessine_image(images[11], p);
-      else if(is_display(i,j,8)) // 8=mine
-        dessine_image(images[13], p);
-      else if(is_display(i,j,9)) // 9=error
-        dessine_image(images[18], p);
-      else if(is_display(i,j,10)) // 10=safe
-        dessine_image(images[19], p);
-      else if(is_display(i,j,11)) // 11=danger
         dessine_image(images[16], p);
-	  else if(is_display(i,j,0)) // 0=empty
+      else if(is_display(i,j,6)) // 6=redmine
+        dessine_image(images[12], p);
+      else if(is_display(i,j,7)) // 7=win
+        dessine_image(images[14], p);
+      else if(is_display(i,j,8)) // 8=mine
+        dessine_image(images[11], p);
+      else if(is_display(i,j,9)) // 9=error
+        dessine_image(images[13], p);
+      else if(is_display(i,j,10)) // 10=safe
+        dessine_image(images[18], p);
+      else if(is_display(i,j,11)) // 11=danger
+        dessine_image(images[19], p);
+      else if(grille.cell[i][j].chiffre == 0) // 0=empty
         dessine_image(images[10], p);
       else /* 
             * 1=affiché
@@ -348,39 +348,41 @@ void solver() {
   do {
     modif = 0;
     for(i=0;i<NB_X;i++)
-      for(j=0;j<NB_Y;j++) {
-        hide = 0;
-        if(is_display(i,j,1)) {
-          for(i1 = i - 1; i1 < i + 2; i1++)
-            for(j1 = j - 1; j1 < j + 2; j1++)
-              if(in_grid(i1,j1) && is_hide(i1,j1) && !is_display(i1,j1,10))
-                hide++;
-          if(hide == grille.cell[i][j].chiffre)
+      for(j=0;j<NB_Y;j++)
+        if(i >= click.coord.x - 3 && i < click.coord.x + 3 && j >= click.coord.y - 3 && j < click.coord.y + 3) {
+          hide = 0;
+          if(is_display(i,j,1)) {
             for(i1 = i - 1; i1 < i + 2; i1++)
               for(j1 = j - 1; j1 < j + 2; j1++)
-                if(in_grid(i1,j1) && is_display(i1,j1,0)) {
-                  set_display(i1,j1,11);
-                  modif = 1;
-                }
+                if(in_grid(i1,j1) && is_hide(i1,j1) && !is_display(i1,j1,10))
+                  hide++;
+            if(hide == grille.cell[i][j].chiffre)
+              for(i1 = i - 1; i1 < i + 2; i1++)
+                for(j1 = j - 1; j1 < j + 2; j1++)
+                  if(in_grid(i1,j1) && is_display(i1,j1,0)) {
+                    set_display(i1,j1,11);
+                    modif = 1;
+                  }
+          }
         }
-      }
     for(i=0;i<NB_X;i++)
-      for(j=0;j<NB_Y;j++) {
-        hide = 0;
-        if(is_display(i,j,1)) {
-          for(i1 = i - 1; i1 < i + 2; i1++)
-            for(j1 = j - 1; j1 < j + 2; j1++)
-              if(in_grid(i1,j1) && (is_display(i1,j1,11) || is_display(i1,j1,4)))
-                hide++;
-          if(hide == grille.cell[i][j].chiffre)
+      for(j=0;j<NB_Y;j++)
+        if(i >= click.coord.x - 3 && i < click.coord.x + 3 && j >= click.coord.y - 3 && j < click.coord.y + 3) {
+          hide = 0;
+          if(is_display(i,j,1)) {
             for(i1 = i - 1; i1 < i + 2; i1++)
               for(j1 = j - 1; j1 < j + 2; j1++)
-              if(in_grid(i1,j1) && is_display(i1,j1,0)) {
-                  set_display(i1,j1,10);
-                  modif = 1;
-              }
+                if(in_grid(i1,j1) && (is_display(i1,j1,11) || is_display(i1,j1,4)))
+                  hide++;
+            if(hide == grille.cell[i][j].chiffre)
+              for(i1 = i - 1; i1 < i + 2; i1++)
+                for(j1 = j - 1; j1 < j + 2; j1++)
+                if(in_grid(i1,j1) && is_display(i1,j1,0)) {
+                    set_display(i1,j1,10);
+                    modif = 1;
+                }
+          }
         }
-      }
   } while(modif == 1);
   affiche_cell_active();
   affiche_tout();
@@ -399,21 +401,20 @@ int main(int argc,  char** argv) {
   /* Corps du programme */
   affiche_cell_active();
   int prem_clic_g = 0;
-  SOURIS p;
   while(END == 0) {
     affiche_tout();
-    p = attendre_multiclic();
-    p.coord = convert_coord1(p.coord);
-    if(prem_clic_g == 0 && p.bouton == 0) {
-      generation_grille(p.coord);
+    click = attendre_multiclic();
+    convert_coord1();
+    if(prem_clic_g == 0 && click.bouton == 0) {
+      generation_grille();
       prem_clic_g++;
     }
-    if(p.bouton == 0) {
-      modif_grille(p.coord.x,p.coord.y);
-    } else if(p.bouton == 1) {
+    if(click.bouton == 0) {
+      modif_grille(click.coord.x,click.coord.y);
+    } else if(click.bouton == 1) {
       solver();
-    } else if(p.bouton == 2) {
-      modif_flag(p.coord.x,p.coord.y);
+    } else if(click.bouton == 2) {
+      modif_flag(click.coord.x,click.coord.y);
     }
     if((NB_FLAG == NB_FLAG_MINE && NB_FLAG_MINE == NB_MINE) || (NB_HIDDEN == NB_MINE))
       END = 1;
