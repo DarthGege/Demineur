@@ -74,15 +74,21 @@ void init_input() {
   images[6] = charge_image("res/6.bmp");
   images[7] = charge_image("res/7.bmp");
   images[8] = charge_image("res/8.bmp");
-  images[9] = charge_image("res/mine.bmp"); // 8
-  images[10] = charge_image("res/redmine.bmp"); // 6
-  images[11] = charge_image("res/error.bmp"); // 9
-  images[12] = charge_image("res/flag.bmp"); // 4
-  images[13] = charge_image("res/hint.bmp"); // 5
-  images[14] = charge_image("res/unknow.bmp"); // 0
-  images[15] = charge_image("res/safe.bmp"); // 10
-  images[16] = charge_image("res/danger.bmp"); // 11
-  images[17] = charge_image("res/win.bmp"); // 7
+  images[9] = charge_image("res/9.bmp");
+  images[10] = charge_image("res/empty.bmp"); // 8
+  images[11] = charge_image("res/mine.bmp"); // 8
+  images[12] = charge_image("res/redmine.bmp"); // 6
+  images[13] = charge_image("res/error.bmp"); // 9
+  images[14] = charge_image("res/win.bmp"); // 7
+  images[15] = charge_image("res/flag.bmp"); // 4
+  images[16] = charge_image("res/hint.bmp"); // 5
+  images[17] = charge_image("res/unknow.bmp"); // 0
+  images[18] = charge_image("res/safe.bmp"); // 10
+  images[19] = charge_image("res/danger.bmp"); // 11
+  images[20] = charge_image("res/off.bmp");
+  images[21] = charge_image("res/minus.bmp");
+  images[22] = charge_image("res/plus.bmp");
+  images[23] = charge_image("res/x.bmp");
   
   do {
     printf("Grille de : (9-%d) X = ? ",X_MAX);
@@ -202,24 +208,26 @@ void affiche_cell_active() { //BLURP
     for(i=0;i<NB_X;i++) {
       p.x = i*SCALE; p.y = j*SCALE;
       if(is_display(i,j,0)) // 0=unknow
-        dessine_image(images[14], p);
-      else if(is_display(i,j,4)) // 4=flag
-        dessine_image(images[12], p);
-      else if(is_display(i,j,5)) // 5=hint
-        dessine_image(images[13], p);
-      else if(is_display(i,j,6)) // 6=redmine
-        dessine_image(images[10], p);
-      else if(is_display(i,j,7)) // 7=win
-        dessine_image(images[17], p);
-      else if(is_display(i,j,8)) // 8=mine
-        dessine_image(images[9], p);
-      else if(is_display(i,j,9)) // 9=error
-        dessine_image(images[11], p);
-      else if(is_display(i,j,10)) // 10=safe
         dessine_image(images[15], p);
+      else if(is_display(i,j,4)) // 4=flag
+        dessine_image(images[16], p);
+      else if(is_display(i,j,5)) // 5=hint
+        dessine_image(images[12], p);
+      else if(is_display(i,j,6)) // 6=redmine
+        dessine_image(images[14], p);
+      else if(is_display(i,j,7)) // 7=win
+        dessine_image(images[11], p);
+      else if(is_display(i,j,8)) // 8=mine
+        dessine_image(images[13], p);
+      else if(is_display(i,j,9)) // 9=error
+        dessine_image(images[18], p);
+      else if(is_display(i,j,10)) // 10=safe
+        dessine_image(images[19], p);
       else if(is_display(i,j,11)) // 11=danger
         dessine_image(images[16], p);
-      else /* 0=caché 
+	  else if(is_display(i,j,0)) // 0=empty
+        dessine_image(images[10], p);
+      else /* 
             * 1=affiché
             * 2=à calculer
             * 3=à reporter au prochain cycle
