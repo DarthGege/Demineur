@@ -776,7 +776,7 @@ IMAGE charge_image( char* fichier ) {
 	
 	// Erreur (mauvais format? Fichier non trouvé?)
 	if ( im->surface == NULL) {
-		printf( "(*) Erreur lors du chargement de l'image: %s\n", SDL_GetError() );
+		printf( "(*) Erreur lors du chargement de l'image '%s': %s\n",fichier , SDL_GetError() );
 		quitter(1);
 	}
 	

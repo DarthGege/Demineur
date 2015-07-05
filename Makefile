@@ -1,22 +1,16 @@
-##########################################
- ########################################
- ###   NE PAS MODIFIER CE FICHIER...  ###
- ########################################
-##########################################
-
-
+########################################
+  ####################################
+  ###  NE PAS MODIFIER CE FICHIER  ###
+  ####################################
+########################################
 
 ## Compilateur
 CC=gcc
-
-
 
 ## Options du compilateur et du linker ##
 CFLAGS=-O2 -Wall -Ilib
 LIBS=-lm
 obj_files= toolbox.o
-
-
 
 ## Options du programme compilé ##
 EXECUTABLE=demineur
@@ -33,8 +27,6 @@ else
 endif
 #########################################
 
-
-
 ## Verification presence du module Graphique ##########
 ifneq ($(wildcard graphics/graphics.h),)
 	CFLAGS += `sdl2-config --cflags` -DWITH_GRAPHICS
@@ -43,8 +35,6 @@ ifneq ($(wildcard graphics/graphics.h),)
 endif
 #######################################################
 
-
-
 ## Verification presence du module Audio ##
 ifneq ($(wildcard audio/audio.h),)
 	CFLAGS += -DWITH_AUDIO
@@ -52,8 +42,6 @@ ifneq ($(wildcard audio/audio.h),)
 	obj_files += audio.o
 endif
 ###########################################
-
-
 
 ## Verification presence du module Reseau ##
 ifneq ($(wildcard net/net.h),)
@@ -64,7 +52,6 @@ endif
 ############################################
 
 all: clean $(SOURCES) $(EXECUTABLE)$(EXEEXT)
-
 
 # Compilation de l'environnement SDL ############
 toolbox.o: toolbox.c toolbox.h
@@ -84,8 +71,6 @@ net.o: net/net.c net/net.h
 	@$(CC) $(CFLAGS) $(LIBS) -c net/net.c -o $@
 #################################################
 
-
-
 ## Cible generique
 %: %.c $(obj_files)
 #	@echo "CFLAGS = $(CFLAGS)"
@@ -95,13 +80,9 @@ net.o: net/net.c net/net.h
 	$(CC) $(CFLAGS) $(obj_files) $@.c -o $@ $(LIBS)
 	@echo " "
 
-
-
 run: $(ARGS)
 	@echo " * Execution du programme '$@'"
 	@./$(ARGS)
-
-
 
 ## Effacer les core dumps et les anciennes versions
 clean:
