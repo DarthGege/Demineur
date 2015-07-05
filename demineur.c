@@ -22,11 +22,11 @@ typedef struct {
   int mine;
   int number;
   int display;
-} CELLULE;
+} CELL;
 
 typedef struct {
-  CELLULE cell[X_MAX][Y_MAX];
-} GRILLE;
+  CELL cell[X_MAX][Y_MAX];
+} GRID;
 
 /*
 // moved to graphics.h
@@ -90,7 +90,7 @@ int nb_hidden = 0;
 int mode = 0;
 int end = 0;
 IMAGE imgs[32];
-GRILLE grid;
+GRID grid;
 MOUSE click;
 
 // forked from toolbox.c to customize
@@ -297,8 +297,8 @@ void border() {
   draw_number(nb_x + 3, nb_y - 2, 3, nb_mine);
 }
 
-CELLULE init_cell() {
-  CELLULE cell;
+CELL init_cell() {
+  CELL cell;
   cell.mine = 0;
   cell.number = 0;
   cell.display = 0;
@@ -602,6 +602,7 @@ int game() {
       end = 1;
     }
   }
+	draw_number(nb_x + 3, nb_y - 2, 3, nb_mine - nb_flag);
   if(end == 1) {
     return win();
   } else if(end == 2) {
