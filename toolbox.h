@@ -30,7 +30,7 @@
 
 	// Renvoie un int dans l'intervalle [0..N[
 	// càd N valeurs différentes de 0 à N-1
-	int entier_aleatoire(int N);
+	int random_int(int N);
 
 	// Renvoie l'entier tapé au clavier.
 	// Cette fonction est bloquante

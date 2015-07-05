@@ -14,7 +14,7 @@
 #include "../toolbox.h"
 
 // #################################################
-// Variables et constantes pour l'affichage de texte
+// Variables et constantes pour l'display de texte
 // #################################################
 	#define POLICE_NAME "verdana.ttf"
 	TTF_Font *police[256];
@@ -23,7 +23,7 @@
 // ############################
 // Fenêtres et gestion du temps
 // ############################
-// Variables d'accès à l'affichage
+// Variables d'accès à l'display
 SDL_Window   *SDL_screen;
 SDL_Renderer *SDL_renderer;
 int soft_renderer = 0;
@@ -31,7 +31,7 @@ int soft_renderer = 0;
 // Pour ne pas oublier l'appel à initialiser_fenetre()
 int __initialiser_fenetre_is_already_called = 0;
 
-// Si SDL_AFFICHE_AUTO vaut 1, l'affichage
+// Si SDL_AFFICHE_AUTO vaut 1, l'display
 // est automatiquement fait pour chaque objet
 // Sinon il faut le fait à la main
 int SDL_AFFICHE_AUTO = 1;
@@ -43,8 +43,7 @@ int SDL_AFFICHE_AUTO = 1;
 // Initialisation de la fenêtre sur laquelle on dessine
 // W et H sont la largeur et la hauteur désirée.
 void init_inputs();
-void _set_window(int W, int H, char *titre, Uint32 flags)
-{
+void _set_window(int W, int H, char *titre, Uint32 flags){
 	printf("= Toolbox v2.01 =\n");
 
 	// Initialisation d'une taille raisonnable
@@ -81,11 +80,11 @@ void _set_window(int W, int H, char *titre, Uint32 flags)
 	police[10] = TTF_OpenFont(POLICE_NAME, 10);
 	if (police[10])	{
 		verdana_ok=1;
-		// printf("police %s OK : affichage graphique OK.\n",POLICE_NAME);
+		// printf("police %s OK : display graphique OK.\n",POLICE_NAME);
 	}
 	else {
 		verdana_ok = 0;
-		// printf("police %s absente : affichage dans la console.\n",POLICE_NAME);
+		// printf("police %s absente : display dans la console.\n",POLICE_NAME);
 	}
 	
 	init_inputs();
@@ -93,11 +92,28 @@ void _set_window(int W, int H, char *titre, Uint32 flags)
 	// Remplit la fenêtre de noir
 	remplir_ecran(noir);
 	affiche_auto_on();
-	affiche_tout();
+	show_all();
 	
 	fflush(stdout);
 	
 	atexit(SDL_Quit);
+}
+
+void resize_window(int W, int H) {
+	SDL_Event event;
+
+  if((W > 10) && (W < MAX_WIDTH)) WIDTH  = W;
+  else WIDTH  = 600;
+  
+  if((H > 10) && (H < MAX_HEIGHT)) HEIGHT = H;
+  else HEIGHT = 400;
+  
+  SDL_SetWindowSize(SDL_screen, W, H);
+  
+  SDL_Delay(10);
+  
+  remplir_ecran(noir);
+  show_all();
 }
 
 void initialiser_fenetre(int W, int H, char *titre){
@@ -107,8 +123,8 @@ void initialiser_fenetre(int W, int H, char *titre){
 void initialiser_ecran(int W, int H, char *titre){
 	_set_window(W,H,titre,SDL_WINDOW_FULLSCREEN_DESKTOP);
 
-	//SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "nearest");	  // Pixel le plus proche
-	//SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");		  // Lissage lineaire	
+	//SDL_SetHint(SDL_HINT_RendER_SCALE_QUALITY, "nearest");	  // Pixel le plus proche
+	//SDL_SetHint(SDL_HINT_RendER_SCALE_QUALITY, "linear");		  // Lissage lineaire	
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "best");			  // Lissage bilineaire
 
 	SDL_RenderSetLogicalSize( SDL_renderer, W, H);
@@ -118,12 +134,12 @@ void initialiser_ecran(int W, int H, char *titre){
 
 // Affichage automatique ou manuel
 void affiche_auto_on () { SDL_AFFICHE_AUTO = 1; }
-void affiche_auto_off() { SDL_AFFICHE_AUTO = 0; }
+void disable_auto_redraw() { SDL_AFFICHE_AUTO = 0; }
 
 // Affiche tous les objets et vérifie que la fonction initialiser_fenetre 
 // a été appelée précédemment et affiche un message d'erreur sinon.	
 void check_events();
-void affiche_tout()
+void show_all()
 {	
 	if (__initialiser_fenetre_is_already_called == 25) {
 		/* SDL_Flip(SDL_screen);   */
@@ -135,7 +151,7 @@ void affiche_tout()
 		 ecrire_texte("		   Cliquer pour terminer.");
 		 fprintf(stderr,"initialiser_fenetre() n'a pas été appelée.\n");
 		 fprintf(stderr,"Cliquer pour terminer.\n");
-		 attendre_clic();
+		 attendre_click();
 		 quitter(1);
 	}
 	
@@ -191,10 +207,10 @@ typedef struct {
 	unsigned char key_pressed[ SDL_NUM_SCANCODES ];		// Tableau des touches appuyées
 	unsigned char key_count[ SDL_NUM_SCANCODES ];		// Tableau des nb d'appuis sur les touches
 
-	POINT mouse, mouse_rel, mouse_clic[3] ;		// Positions de la souris: absolue, relative, 
-												//		derniers clics gauche, droite et milieu
-	unsigned char mouse_pressed[ 3 ];		// Tableau des boutons de souris appuyés
-	unsigned char mouse_count[ 3 ];		// Tableau des nombres de clics
+	POINT mouse, mouse_rel, mouse_click[3] ;		// Positions de la souris: absolue, relative, 
+												//		derniers clicks gauche, droite et milieu
+	unsigned char mouse_pressed[ 3 ];		// Tableau des buttons de souris appuyés
+	unsigned char mouse_count[ 3 ];		// Tableau des nombres de clicks
 } INPUT;
 INPUT in;
 
@@ -206,7 +222,7 @@ void init_inputs(){
 	int i;
 	for(i=0;i<SDL_NUM_SCANCODES;i++) in.key_pressed[i]=in.key_count[i]=0;
 	for(i=0;i<3;i++){
-		in.mouse_clic[i].x = in.mouse_clic[i].y = -1;
+		in.mouse_click[i].x = in.mouse_click[i].y = -1;
 		in.mouse_pressed[i]=in.mouse_count[i]=0;
 	}
 }
@@ -249,14 +265,14 @@ void check_events(){
 
 			case SDL_MOUSEBUTTONDOWN:
 				b = event.button.button - 1; 				// 0 = gauche, 1 = milieu, 2 = droite
-				if(0<=b && b<=2) in.mouse_pressed[b]=1;		// On note que le bouton est pressé
+				if(0<=b && b<=2) in.mouse_pressed[b]=1;		// On note que le button est pressé
 				break;
 			
 			case SDL_MOUSEBUTTONUP:
 				b = event.button.button - 1;				// 0 = gauche, 1 = milieu, 2 = droite
 				if(0<=b && b<=2) {
-					in.mouse_clic[b].x = event.button.x;
-					in.mouse_clic[b].y = HEIGHT-1-event.button.y;
+					in.mouse_click[b].x = event.button.x;
+					in.mouse_click[b].y = HEIGHT-1-event.button.y;
 					in.mouse_count[b]++;
 					in.mouse_pressed[b]=0;
 				}
@@ -321,8 +337,8 @@ void attendre_echap()
 	POINT p;
 	p.x = WIDTH/2 - 170;
 	p.y = 25;
-	dessine_texte("Appuyer sur Echap pour terminer",20,p,gris);
-	affiche_tout();
+	//dessine_texte("Appuyer sur Echap pour terminer",20,p,gris);
+	show_all();
 	
 	while ( 1 )
 	{
@@ -343,57 +359,57 @@ int touche_nb_appuis( int b )  {
 	return r;
 }
 
-// Attend que l'utilisateur clique avec le bouton gauche
+// Attend que l'utilisateur clique avec le button gauche
 // Renvoie les coordonnées du point cliqué
 // Instruction bloquante
-POINT attendre_clic()
+POINT attendre_click()
 {
 	POINT P;
 	
-	// On force l'attente du prochain clic!
-	in.mouse_clic[0].x = in.mouse_clic[0].y = -1;
+	// On force l'attente du prochain click!
+	in.mouse_click[0].x = in.mouse_click[0].y = -1;
 
-	while( in.mouse_clic[0].x==-1 )
+	while( in.mouse_click[0].x==-1 )
 	{
 		check_events();
 		attendre(20);
 	}
 	
-	P = in.mouse_clic[0];
-	in.mouse_clic[0].x = in.mouse_clic[0].y = -1; 
+	P = in.mouse_click[0];
+	in.mouse_click[0].x = in.mouse_click[0].y = -1; 
 	
 	printf("Clic en %4d %4d\n",P.x,P.y);
 	fflush(stdout);
 	return P;
 }
 
-SOURIS attendre_multiclic()
+MOUSE wait_mouse_click()
 {
-	SOURIS P;
+	MOUSE P;
 	
-	// On force l'attente du prochain clic!
-	in.mouse_clic[0].x = in.mouse_clic[0].y = -1;
-	in.mouse_clic[1].x = in.mouse_clic[1].y = -1;
-	in.mouse_clic[2].x = in.mouse_clic[2].y = -1;
-	while(in.mouse_clic[0].x==-1 && in.mouse_clic[1].x==-1 && in.mouse_clic[2].x==-1)
+	// On force l'attente du prochain click!
+	in.mouse_click[0].x = in.mouse_click[0].y = -1;
+	in.mouse_click[1].x = in.mouse_click[1].y = -1;
+	in.mouse_click[2].x = in.mouse_click[2].y = -1;
+	while(in.mouse_click[0].x==-1 && in.mouse_click[1].x==-1 && in.mouse_click[2].x==-1)
 	{
 		check_events();
 		attendre(20);
 	}
 	
-	if(in.mouse_clic[0].x != -1) {
-		P.coord = in.mouse_clic[0];
-		P.bouton = 0;
-	} else if(in.mouse_clic[1].x != -1) {
-		P.coord = in.mouse_clic[1];
-		P.bouton = 1;
+	if(in.mouse_click[0].x != -1) {
+		P.coord = in.mouse_click[0];
+		P.button = 0;
+	} else if(in.mouse_click[1].x != -1) {
+		P.coord = in.mouse_click[1];
+		P.button = 1;
 	} else {
-		P.coord = in.mouse_clic[2];
-		P.bouton = 2;
+		P.coord = in.mouse_click[2];
+		P.button = 2;
 	}
-	in.mouse_clic[0].x = in.mouse_clic[0].y = -1;
-	in.mouse_clic[1].x = in.mouse_clic[1].y = -1;
-	in.mouse_clic[2].x = in.mouse_clic[2].y = -1;
+	in.mouse_click[0].x = in.mouse_click[0].y = -1;
+	in.mouse_click[1].x = in.mouse_click[1].y = -1;
+	in.mouse_click[2].x = in.mouse_click[2].y = -1;
 	return P;
 }
 
@@ -401,16 +417,16 @@ POINT position_souris(){
 	return in.mouse;
 }
 
-BOOL bouton_appuye( int b ){
+BOOL button_appuye( int b ){
 	if (b<0 || b>2) return 0;
 	return in.mouse_pressed[b];
 }
 
-POINT position_clic( int b ){
+POINT position_click( int b ){
 	POINT P={-1,-1};
 	if (b>=0 && b<=2) {
-		P = in.mouse_clic[b];
-		in.mouse_clic[b].x = in.mouse_clic[b].y = -1;
+		P = in.mouse_click[b];
+		in.mouse_click[b].x = in.mouse_click[b].y = -1;
 	}
 	return P;
 }
@@ -430,7 +446,7 @@ void remplir_ecran(COULEUR couleur)
 	SetRenderColor( couleur );
 	SDL_RenderClear(SDL_renderer);
 	
-	if (SDL_AFFICHE_AUTO) affiche_tout();
+	if (SDL_AFFICHE_AUTO) show_all();
 }
 
 // Affichage un pixel
@@ -439,7 +455,7 @@ void _pixel(int x, int y, COULEUR couleur)
 	SetRenderColor( couleur );
 	SDL_RenderDrawPoint( SDL_renderer, x, HEIGHT-y-1 );
 
-	if (SDL_AFFICHE_AUTO) affiche_tout();
+	if (SDL_AFFICHE_AUTO) show_all();
 }
 inline void dessine_pixel(POINT p, COULEUR couleur) { _pixel(p.x, p.y, couleur); }
 
@@ -449,7 +465,7 @@ void _ligne(int x1, int y1, int x2, int y2, COULEUR couleur)
 	SetRenderColor( couleur );
 	SDL_RenderDrawLine( SDL_renderer, x1, HEIGHT-y1-1, x2, HEIGHT-y2-1);
 	
-	if (SDL_AFFICHE_AUTO) affiche_tout();
+	if (SDL_AFFICHE_AUTO) show_all();
 }
 inline void dessine_ligne(POINT p1, POINT p2, COULEUR couleur) { _ligne( p1.x, p1.y, p2.x, p2.y, couleur ); }
 
@@ -468,7 +484,7 @@ void _rectangle(int x1, int y1, int x2, int y2, COULEUR couleur) {
 	SetRenderColor( couleur );
 	SDL_RenderDrawRect( SDL_renderer, &rect );
 	
-	if (SDL_AFFICHE_AUTO) affiche_tout();
+	if (SDL_AFFICHE_AUTO) show_all();
 }
 inline void dessine_rectangle(POINT p1, POINT p2, COULEUR couleur) { _rectangle( p1.x, p1.y, p2.x, p2.y, couleur ); }
 
@@ -488,7 +504,7 @@ void _rectangle_plein(int x1, int y1, int x2, int y2, COULEUR couleur)
 	SetRenderColor( couleur );
 	SDL_RenderFillRect( SDL_renderer, &rect );
 	
-	if (SDL_AFFICHE_AUTO) affiche_tout();
+	if (SDL_AFFICHE_AUTO) show_all();
 }
 inline void dessine_rectangle_plein(POINT p1, POINT p2, COULEUR couleur) { _rectangle_plein( p1.x, p1.y, p2.x, p2.y, couleur ); }
 
@@ -519,7 +535,7 @@ void _cercle(int cx, int cy, int rayon, COULEUR couleur)
 			{	d += 2*(y-x-1);	y--;	x++;	}
 	}
 
-	if (SDL_AFFICHE_AUTO) affiche_tout();	
+	if (SDL_AFFICHE_AUTO) show_all();	
 }
 inline void dessine_cercle(POINT centre, int rayon, COULEUR couleur) { _cercle(centre.x,centre.y,rayon,couleur); }
 
@@ -579,7 +595,7 @@ void _cercle_plein(int cx, int cy, int rayon, COULEUR couleur)
 		}
 	}
 
-	if (SDL_AFFICHE_AUTO) affiche_tout();
+	if (SDL_AFFICHE_AUTO) show_all();
 }
 
 inline void dessine_cercle_plein(POINT centre, int rayon, COULEUR couleur) { _cercle_plein(centre.x, centre.y, rayon, couleur); }
@@ -652,7 +668,7 @@ void dessine_triangle_plein(POINT p1, POINT p2, POINT p3, COULEUR couleur)
 //	  la police est celle définie par la constante POLICE_NAME 
 //	  la taille est passée en argument
 //	  l'argument p est le point en haut à gauche où le texte s'affiche
-//	  la COULEUR C passée en argument est la couleur d'affichage
+//	  la COULEUR C passée en argument est la couleur d'display
 void dessine_texte(char *a_ecrire, int taille, POINT p, COULEUR C)
 {
 	int i;
@@ -700,7 +716,7 @@ void dessine_texte(char *a_ecrire, int taille, POINT p, COULEUR C)
 		SDL_FreeSurface(surf);
 		
 		SDL_RenderCopy(SDL_renderer, texture,					NULL, &dest);
-	  	if (SDL_AFFICHE_AUTO) affiche_tout();
+	  	if (SDL_AFFICHE_AUTO) show_all();
 				
 		SDL_DestroyTexture( texture );		
 	} else
@@ -761,14 +777,14 @@ void retour_a_la_ligne() { ecrire_texte(NULL); }
 
 
 // #####################
-// Manipulation d'images
+// Manipulation d'img
 // #####################
-// Tableau pour suivre l'allocation d'images
+// Tableau pour suivre l'allocation d'img
 IMAGE tab_img[1000];
 int   nb_imgs = 0;  
 
 // Chargement d'une image
-IMAGE charge_image( char* fichier ) {
+IMAGE load_img( char* fichier ) {
 	IMAGE im = malloc( sizeof(IMAGE) );
  
 	// Chargement du fichier
@@ -803,7 +819,7 @@ inline int largeur_image( IMAGE im )  { return im->surface->w; }
 inline int hauteur_image( IMAGE im )  { return im->surface->h; }
 
 // Afficher une image en entier aux coordonnees du point P
-void dessine_image( IMAGE im, POINT P ) {
+void draw_img( IMAGE im, POINT P ) {
 	if (im->texture == NULL )
 	{   // Il est necessaire de regenerer la "texture" pour rendu
 		im->texture = SDL_CreateTextureFromSurface( SDL_renderer, im->surface );	 
@@ -817,10 +833,10 @@ void dessine_image( IMAGE im, POINT P ) {
 
 	SDL_RenderCopy(SDL_renderer, im->texture,					NULL, &dest);
 	
-	if (SDL_AFFICHE_AUTO) affiche_tout();
+	if (SDL_AFFICHE_AUTO) show_all();
 }
 
-void dessine_image_rzs( IMAGE im, POINT P, double angle, double k, SYMETRIE sym) {
+void draw_img_rzs( IMAGE im, POINT P, double angle, double k, SYMETRIE sym) {
 	if (im->texture == NULL )
 	{   // Il est necessaire de regenerer la "texture" pour rendu
 		im->texture = SDL_CreateTextureFromSurface( SDL_renderer, im->surface );	 
@@ -834,7 +850,7 @@ void dessine_image_rzs( IMAGE im, POINT P, double angle, double k, SYMETRIE sym)
     
 	SDL_RenderCopyEx(SDL_renderer, im->texture, NULL, &dest, -angle, NULL, sym );
 	
-	if (SDL_AFFICHE_AUTO) affiche_tout();	
+	if (SDL_AFFICHE_AUTO) show_all();	
 }
 
 // Récupérer la couleur d'un pixel sur une image
@@ -903,7 +919,7 @@ IMAGE image_vide( int largeur, int hauteur ) {
 // ######
 // Helper: appelé automatiquement par quitter( error_code );
 void quitter_graph() {
-	// Liberation de toutes les images ouvertes
+	// Liberation de toutes les img ouvertes
 	while(nb_imgs!=0)
 	{
 		nb_imgs--;

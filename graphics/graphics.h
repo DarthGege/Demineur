@@ -26,7 +26,7 @@
 // ############################
 // Fenêtres et gestion du temps
 // ############################
-	// Taille de l'affichage
+	// Taille de l'display
 	int WIDTH;
 	int HEIGHT;
 
@@ -35,11 +35,11 @@
 	void initialiser_ecran(int W, int H, char *titre);
 
 	// Affichage automatique ou manuel
-	//    Si l'affichage est automatique, chaque objet dessiné est automatiquement affiché.
-	//    Sinon, il faut explicitement appeler la fonction affiche_tout() pour afficher les objets
+	//    Si l'display est automatique, chaque objet dessiné est automatiquement affiché.
+	//    Sinon, il faut explicitement appeler la fonction show_all() pour afficher les objets
 	void affiche_auto_on();
-	void affiche_auto_off();
-	void affiche_tout();
+	void disable_auto_redraw();
+	void show_all();
 
 	// Renvoie le nombre de millisecondes écoulées depuis le lancement du programme
 	int chrono();
@@ -53,7 +53,7 @@
 // ###############################
 	// Définition du type POINT
 	typedef struct point {int x,y;} POINT;
-	typedef struct souris {POINT coord; int bouton;} SOURIS;
+	typedef struct souris {POINT coord; int button;} MOUSE;
 
 	// Définition du type COULEUR
 	typedef Uint32 COULEUR;
@@ -95,38 +95,38 @@
 	// Instruction non bloquante, si la souris n'a pas bougé, les champs valent 0.
 	POINT lit_souris();
 
-	// Attend que l'utilisateur clique avec le bouton gauche
+	// Attend que l'utilisateur clique avec le button gauche
 	// Renvoie les coordonnées du point cliqué
 	// Instruction bloquante
-	POINT attendre_clic();
+	POINT attendre_click();
 	
-	// Attend que l'utilisateur clique avec un bouton
-	// Renvoie les coordonnées du point cliqué et le bouton appuyé
+	// Attend que l'utilisateur clique avec un button
+	// Renvoie les coordonnées du point cliqué et le button appuyé
 	// Instruction bloquante
-	SOURIS attendre_multiclic();
+	MOUSE wait_mouse_click();
 
 	// Position de la souris
 	// Instruction non bloquante
 	POINT position_souris();
 
-	// Renvoie vrai ou faux, selon que le bouton de la souris est appuyé ou pas
+	// Renvoie vrai ou faux, selon que le button de la souris est appuyé ou pas
 	//	b peut prendre les valeurs CLIC_GCH, CLIC_DRT ou CLIC_MIL
-	//	suivant le bouton qu'on souhaite regarder	
-	BOOL bouton_appuye( int b );
+	//	suivant le button qu'on souhaite regarder	
+	BOOL button_appuye( int b );
 
-	// Position du dernier clic sur le bouton précisé
+	// Position du dernier click sur le button précisé
 	//  	b peut prendre les valeurs CLIC_GCH, CLIC_DRT ou CLIC_MIL
-	//	    suivant le bouton qu'on souhaite regarder
+	//	    suivant le button qu'on souhaite regarder
 	// Instruction non bloquante!
-	// S'il n'y a pas eu de clic, renvoie (-1;-1)
-	POINT position_clic( int b );
+	// S'il n'y a pas eu de click, renvoie (-1;-1)
+	POINT position_click( int b );
 
-	// Activer / Desactiver l'affichage de la souris à l'écran
+	// Activer / Desactiver l'display de la souris à l'écran
 	void montre_souris();
 	void cache_souris();
 
 	// Empeche la souris de sortir dela fenetre
-	//   Attention : desactive automatiquement l'affichage de la souris!
+	//   Attention : desactive automatiquement l'display de la souris!
 	void capture_souris();
 	void libere_souris();
 
@@ -180,7 +180,7 @@
 	// 		la police est celle définie par la constante POLICE_NAME 
 	// 		la taille est passée en argument
 	// 		l'argument p est le point en haut à gauche où le texte s'affiche
-	// 		la COULEUR C passée en argument est la couleur d'affichage
+	// 		la COULEUR C passée en argument est la couleur d'display
 	void dessine_texte(char *a_ecrire, int taille, POINT p, COULEUR C);
 
 	// Affiche un entier
@@ -196,15 +196,15 @@
 
 
 // #####################
-// Manipulation d'images
+// Manipulation d'img
 // #####################
     typedef struct {
-        SDL_Surface* surface;   // L'image en mémoire, modifiable
+        SDL_Surface* surface;   // L'image en mémoire, updateiable
         SDL_Texture* texture;   // L'image transformée pour le rendu
     }* IMAGE;
 
     // Charge une image au format BMP en mémoire
-    IMAGE charge_image( char* fichier );
+    IMAGE load_img( char* fichier );
     
     // Libere la mémoire utilisée par l'image
     void libere_image( IMAGE image );
@@ -213,14 +213,14 @@
     int largeur_image( IMAGE image );
     int hauteur_image( IMAGE image );
 
-    // Copie l'image dans la fenêtre d'affichage.
+    // Copie l'image dans la fenêtre d'display.
     //		Le coin inférieur gauche de l'image sera aux coordonnees du point P.
-    void dessine_image( IMAGE image, POINT P );
+    void draw_img( IMAGE image, POINT P );
 
-    // Copie l'image dans la fenêtre d'affichage.
+    // Copie l'image dans la fenêtre d'display.
     //		Le coin inférieur gauche de l'image sera aux coordonnees du point P.
     typedef enum { PAS_SYM = SDL_FLIP_NONE, SYM_H = SDL_FLIP_HORIZONTAL, SYM_V = SDL_FLIP_VERTICAL, SYM_HV = SDL_FLIP_HORIZONTAL|SDL_FLIP_VERTICAL } SYMETRIE;
-    void dessine_image_rzs( IMAGE im, POINT P, double angle, double k, SYMETRIE sym );
+    void draw_img_rzs( IMAGE im, POINT P, double angle, double k, SYMETRIE sym );
 
     // Récupére la couleur d'un pixel
     COULEUR lit_pixel_image( IMAGE image, POINT P );

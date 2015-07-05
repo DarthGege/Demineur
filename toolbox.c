@@ -18,7 +18,7 @@ float reel_aleatoire()
 
 // Fonction renvoyant un entier au hasard parmi
 //      0, 1, 2, ... , N-1
-int entier_aleatoire(int N)
+int random_int(int N)
 {
     return (int)(N*reel_aleatoire());
 }
